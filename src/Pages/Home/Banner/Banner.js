@@ -4,7 +4,7 @@ import banner from '../../../Assets/2021-Best-Smartphones-3-840x472.jpg.webp'
 const Banner = () => {
     return (
         <section>
-          <div className="hero h-96" style={{ backgroundImage: `url(${banner})` }}>
+          <div className="hero my-3 h-96" style={{ backgroundImage: `url(${banner})` }}>
   <div className="hero-overlay bg-opacity-80"></div>
   <div className="hero-content text-center text-neutral-content">
     <div className="max-w-md">
