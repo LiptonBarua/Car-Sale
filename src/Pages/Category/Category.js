@@ -3,19 +3,20 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 
 
-const Products = ({products}) => {
-    const{name, title, location, date,time, image, original, resale} =products;
+const Category = ({products, setProductsName}) => {
+    const{name, title, location, date,time, image, original, resale, phone} =products;
     return (
         <div className="card card-compact h-[74%] shadow-xl">
        <PhotoProvider>
         <PhotoView src={image}>
-        <figure><img src={image} alt="" /></figure>
+        <figure><img src={image} className='h-96' alt="" /></figure>
         </PhotoView>
        </PhotoProvider>
         <div className="card-body">
           <h2 className="card-title">{title}</h2>
-          <h3 className='text-info'>Saller Name: {name}</h3>
+          <h3 className='text-info font-bold'>Saller Name: {name}</h3>
           <p>Location: {location}</p>
+          <p>Phone: {phone}</p>
           <div>
           <p>Original Price: {original}</p>
           <p>Resale Price: {resale}</p>
@@ -27,11 +28,11 @@ const Products = ({products}) => {
          
           <div>
           
-            <button className="btn btn-sm w-full btn-primary"><label htmlFor="product-modal">Buy Now</label></button>
+            <label onClick={()=>setProductsName(products)} htmlFor="product-modal" className="btn btn-sm w-full btn-primary">Book Now</label>
           </div>
         </div>
       </div>
     );
 };
 
-export default Products;
+export default Category;

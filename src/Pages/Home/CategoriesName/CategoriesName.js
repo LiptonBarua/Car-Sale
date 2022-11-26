@@ -1,6 +1,7 @@
 import { async } from '@firebase/util';
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import CategorieCard from './CategorieCard';
 
 
@@ -18,7 +19,7 @@ const CategoriesName = () => {
             <h1 className='text-2xl text-center mb-6'>All Category</h1>
             <div className=' grid grid-cols-1 md:grid-cols-3 gap-6'>
             {
-                categories.map(categorie=><CategorieCard key={categorie._id} categorie={categorie}></CategorieCard>)
+                categories?.map(categorie=><Link to={`/product/${categorie.brand}`}><CategorieCard key={categorie._id} categorie={categorie}></CategorieCard></Link>)
             }
             </div>
         </div>

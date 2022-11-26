@@ -5,8 +5,9 @@ import AddProduct from "../../Pages/AddProduct/AddProduct";
 import Blog from "../../Pages/Blog/Blog";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
-import Product from "../../Pages/Product/Product";
+import Products from "../../Pages/Category/Categorys";
 import SignUp from "../../Pages/SignUp/SignUp";
+import Bookings from "../../Pages/BookingCollection/Bookings";
 
 const router=createBrowserRouter([
 {
@@ -16,7 +17,7 @@ const router=createBrowserRouter([
         },
         {
             path: '/product/:brand', 
-            element: <Product></Product>,
+            element: <Products></Products>,
             loader: ({params})=>fetch(`http://localhost:8000/product/${params.brand}`)
 
         },
@@ -32,11 +33,14 @@ const router=createBrowserRouter([
     ]
 },
 {
-    path: '/dashboard', element: <DashboardLayout></DashboardLayout>,children: [
+    path: '/', element: <DashboardLayout></DashboardLayout>,children: [
         {
-            path: '/dashboard', element: <AddProduct></AddProduct>
+            path: '/dashboard', element: <Bookings></Bookings>
         },
-    
+        {
+            path: '/addProduct', element: <AddProduct></AddProduct>
+        },
+      
     ]
 }
 ])

@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { DayPicker } from 'react-day-picker';
+import Product from '../Category/Categorys';
 
 
 const AddProduct = () => {
@@ -46,7 +47,8 @@ const AddProduct = () => {
                         time: data?.time,
                         resale: parseInt(data?.resale),
                         image: imageData.data.url,
-                        brand: data?.brand
+                        brand: data?.brand,
+                        phone:data?.phone
                     }
                     fetch('http://localhost:8000/product', {
                         method: 'POST',
@@ -57,7 +59,7 @@ const AddProduct = () => {
                     })
                         .then(res => res.json())
                         .then(data => {
-                            toast.success(`${data.title} is my Successfully`);
+                            toast.success('Product Add is my Successfully');
 
                         })
                         .catch(error => {
@@ -70,10 +72,6 @@ const AddProduct = () => {
         <div>
             <h1 className='text-2xl'>Add Product</h1>
             <div>
-
-                <div>
-
-                </div>
 
                 <div className='w-96 p-7'>
                     <form onSubmit={handleSubmit(handleAddProduct)}>
@@ -125,7 +123,13 @@ const AddProduct = () => {
                                 }
                             </select>
                         </div>
+                        
                      </div>
+                     <div className="form-control w-full max-w-xs">
+                            <label className="label"><span className="label-text">Mobile Number</span></label>
+                            <input placeholder='Enter Your Mobile Number' type="text" {...register("phone", { required: 'Phone is Required' })} className="input input-bordered w-full max-w-xs" />
+                            {errors.phone && <p role="alert" className='text-red-500'>{errors.phone?.message}</p>}
+                        </div>
 
                         <div className='flex'>
                             <div className="form-control w-full max-w-xs mr-5">
