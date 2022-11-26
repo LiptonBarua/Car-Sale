@@ -8,7 +8,7 @@ const CategoriesName = () => {
     const {data: categories=[]} = useQuery({
         queryKey: ['categories'],
         queryFn: async()=>{
-            const res=await fetch('http://localhost:8000/categorie')
+            const res=await fetch('http://localhost:8000/category')
             const data= res.json();
             return data;
         }
