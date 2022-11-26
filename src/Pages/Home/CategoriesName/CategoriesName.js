@@ -15,7 +15,7 @@ const CategoriesName = () => {
     })
     return (
         <div className='my-10'>
-            <h1 className='text-2xl text-center mb-6'> Category Name</h1>
+            <h1 className='text-2xl text-center mb-6'>All Category</h1>
             <div className=' grid grid-cols-1 md:grid-cols-3 gap-6'>
             {
                 categories.map(categorie=><CategorieCard key={categorie._id} categorie={categorie}></CategorieCard>)

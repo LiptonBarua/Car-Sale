@@ -1,10 +1,17 @@
 import React from 'react';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
+
 
 const Products = ({products}) => {
     const{name, title, location, date,time, image, original, resale} =products;
     return (
         <div className="card card-compact h-[74%] shadow-xl">
-        <figure><img src={image} alt="Shoes" /></figure>
+       <PhotoProvider>
+        <PhotoView src={image}>
+        <figure><img src={image} alt="" /></figure>
+        </PhotoView>
+       </PhotoProvider>
         <div className="card-body">
           <h2 className="card-title">{title}</h2>
           <h3 className='text-info'>Saller Name: {name}</h3>
@@ -19,7 +26,8 @@ const Products = ({products}) => {
           </div>
          
           <div>
-            <button className="btn btn-sm w-full btn-primary">Buy Now</button>
+          
+            <button className="btn btn-sm w-full btn-primary"><label htmlFor="product-modal">Buy Now</label></button>
           </div>
         </div>
       </div>
