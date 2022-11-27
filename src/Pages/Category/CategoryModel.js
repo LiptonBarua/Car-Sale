@@ -28,6 +28,7 @@ const CategoryModel = ({ productsName, refetch }) => {
         fetch('http://localhost:8000/booking', {
             method: 'POST',
             headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`,
                 'content-type': 'application/json'
             },
             body: JSON.stringify(booking)

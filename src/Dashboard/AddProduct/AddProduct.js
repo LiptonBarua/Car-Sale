@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { DayPicker } from 'react-day-picker';
-import Product from '../Category/Categorys';
 
 
 const AddProduct = () => {

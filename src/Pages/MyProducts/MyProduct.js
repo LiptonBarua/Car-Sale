@@ -23,7 +23,7 @@ const MyProduct = ({product}) => {
             <p>Date: {date}</p>
             <p>Time: {time}</p>
           </div>
-        
+          <button className="btn btn-success">Advertise</button>
         </div>
       </div>
     );

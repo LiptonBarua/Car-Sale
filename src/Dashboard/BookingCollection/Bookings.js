@@ -2,6 +2,7 @@ import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 
 const Bookings = () => {
+ 
     const {data:booking =[]} = useQuery({
         queryKey: ['booking'],
         queryFn: async()=>{
