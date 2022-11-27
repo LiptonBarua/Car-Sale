@@ -4,7 +4,7 @@ import 'react-photo-view/dist/react-photo-view.css';
 
 
 const Category = ({products, setProductsName}) => {
-    const{name, title, location, date,time, image, original, resale, phone} =products;
+    const{name, title, location, date,time, image, original, resale, phone, year} =products;
     return (
         <div className="card card-compact h-[74%] shadow-xl">
        <PhotoProvider>
@@ -19,7 +19,10 @@ const Category = ({products, setProductsName}) => {
           <p>Phone: {phone}</p>
           <div>
           <p>Original Price: {original}</p>
+          <div className='flex justify-between'>
           <p>Resale Price: {resale}</p>
+          <p>Year {year}</p>
+          </div>
           </div>
           <div className='flex justify-between'>
             <p>Date: {date}</p>

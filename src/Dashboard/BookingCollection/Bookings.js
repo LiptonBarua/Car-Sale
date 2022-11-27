@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { } from 'react';
 import { useQuery } from '@tanstack/react-query';
 
+
 const Bookings = () => {
- 
+
     const {data:booking =[]} = useQuery({
+    
         queryKey: ['booking'],
         queryFn: async()=>{
             const res= await fetch('http://localhost:8000/booking',{
@@ -15,6 +17,7 @@ const Bookings = () => {
             return data;
         }
     })
+    console.log(booking)
     return (
         <div>
           <div className="overflow-x-auto">

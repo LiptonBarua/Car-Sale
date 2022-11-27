@@ -11,6 +11,7 @@ import CategoryModel from './CategoryModel';
 const Product = () => {
  
   const [productsName, setProductsName] = useState('')
+  
 
   const products= useLoaderData();
   console.log(products)
@@ -23,7 +24,7 @@ const Product = () => {
         }
        </div>
        <div>
-        <CategoryModel key={products._id} products={products} productsName={productsName}></CategoryModel>
+        <CategoryModel key={products._id} products={products} productsName={productsName} ></CategoryModel>
        </div>
       </section>
     );

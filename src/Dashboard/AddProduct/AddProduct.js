@@ -3,13 +3,16 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import { DayPicker } from 'react-day-picker';
+import {} from 'react-day-picker';
+import { format } from 'date-fns';
 
 
 const AddProduct = () => {
   
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const[selectedDay, setSelectedDay] =useState(new Date())
 
+    const date = format(selectedDay, 'PP')
     const imgHostKey = process.env.REACT_APP_imgbb_key;
 
     
@@ -47,7 +50,8 @@ const AddProduct = () => {
                         resale: parseInt(data?.resale),
                         image: imageData.data.url,
                         brand: data?.brand,
-                        phone:data?.phone
+                        phone:data?.phone,
+                        year: data?.year
                     }
                     fetch('http://localhost:8000/product', {
                         method: 'POST',
@@ -98,8 +102,11 @@ const AddProduct = () => {
                             <input placeholder='Product Name' type="time" {...register("time", { required: 'Time is Required' })} className="input input-bordered w-full max-w-xs" />
                             {errors.time && <p role="alert" className='text-red-500'>{errors.time?.message}</p>}
                         </div>
-
-                   
+                        </div>
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label"><span className="label-text">Year</span></label>
+                            <input placeholder='Year' type="number" {...register("year", { required: 'Time is Required' })} className="input input-bordered w-full max-w-xs" />
+                            {errors.year && <p role="alert" className='text-red-500'>{errors.year?.message}</p>}
                         </div>
                         <div className="form-control w-full max-w-xs">
                             <label className="label"><span className="label-text">Saller Name</span></label>

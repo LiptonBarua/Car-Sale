@@ -1,8 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext} from 'react';
 import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
-const CategoryModel = ({ productsName, refetch }) => {
+const CategoryModel = ({ productsName}) => {
+   
     const { user } = useContext(AuthContext);
     const{title, resale} =productsName;
 
@@ -36,7 +38,11 @@ const CategoryModel = ({ productsName, refetch }) => {
         .then(res=>res.json())
         .then(data=>{
             console.log(data);
-            toast.success('Booking add Successfully');
+            if(data.acknowledged){
+               
+                toast.success('Booking add Successfully');
+            }
+          
         })
     }
 
@@ -51,10 +57,10 @@ const CategoryModel = ({ productsName, refetch }) => {
                       
                         <input type="text" name='name'  defaultValue={user?.displayName} placeholder="Full Name" className="input input-bordered input-info w-full my-3" /><br />
                         <input type="number" defaultValue={resale} name='price'  placeholder="Price" className="input input-bordered input-info w-full mt-3" /><br />
-                        <input name='email'disabled defaultValue={user?.email} type="email" placeholder="Type here" className="input input-bordered input-info w-full" />
+                        <input name='email' defaultValue={user?.email} type="email" placeholder="Type here" className="input input-bordered input-info w-full" />
                         <input type="text"  name='location'  placeholder="Meeting Location" required className="input input-bordered input-info w-full my-3" /><br />
                         <input type="number" name='phone' placeholder="Phone Name" required className="input input-bordered w-full mb-3" /><br />
-                        <button type="submit" value='submit' className='w-full btn btn-accent'>SUBMIT</button>
+                        <Link to='/dashboard'><button type="submit" value='submit' className='w-full btn btn-accent'>SUBMIT</button></Link>
                     </form>
                 </div>
             </div>
