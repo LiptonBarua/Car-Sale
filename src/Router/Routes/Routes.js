@@ -9,7 +9,9 @@ import Products from "../../Pages/Category/Categorys";
 import SignUp from "../../Pages/SignUp/SignUp";
 import MyProducts from "../../Pages/MyProducts/MyProducts";
 import Bookings from "../../Dashboard/BookingCollection/Bookings";
-import AllSellerAndBuyer from "../../Dashboard/AllSellerAndBuyer/AllSellerAndBuyer";
+import PrivateRouter from "../PrivateRouter/PrivateRouter";
+import AdminRouter from "../AdminRouter/AdminRouter";
+import AllUser from "../../Dashboard/AllUser/AllUser";
 
 const router=createBrowserRouter([
 {
@@ -38,15 +40,15 @@ const router=createBrowserRouter([
     ]
 },
 {
-    path: '/', element: <DashboardLayout></DashboardLayout>,children: [
+    path: '/', element: <PrivateRouter><DashboardLayout></DashboardLayout></PrivateRouter> ,children: [
         {
             path: '/dashboard', element: <Bookings></Bookings>
         },
         {
-            path: '/addProduct', element: <AddProduct></AddProduct>
+            path: '/addProduct', element: <AdminRouter><AddProduct></AddProduct></AdminRouter>
         },
         {
-            path: '/allSeller', element: <AllSellerAndBuyer></AllSellerAndBuyer>
+            path: '/allSeller', element: <AdminRouter><AllUser></AllUser></AdminRouter>
         },
       
     ]
