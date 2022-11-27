@@ -47,8 +47,9 @@ const CategoryModel = ({ productsName, refetch }) => {
                     <label htmlFor="product-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <h3 className="font-bold text-lg">{title}</h3>
                     <form onSubmit={handleSubmit}>
-                        <input type="number" defaultValue={resale} name='price'  placeholder="Price" className="input input-bordered input-info w-full mt-3" /><br />
+                      
                         <input type="text" name='name'  defaultValue={user?.displayName} placeholder="Full Name" className="input input-bordered input-info w-full my-3" /><br />
+                        <input type="number" defaultValue={resale} name='price'  placeholder="Price" className="input input-bordered input-info w-full mt-3" /><br />
                         <input name='email'disabled defaultValue={user?.email} type="email" placeholder="Type here" className="input input-bordered input-info w-full" />
                         <input type="text"  name='location'  placeholder="Meeting Location" required className="input input-bordered input-info w-full my-3" /><br />
                         <input type="number" name='phone' placeholder="Phone Name" required className="input input-bordered w-full mb-3" /><br />

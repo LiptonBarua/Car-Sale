@@ -19,7 +19,9 @@ const Navber = () => {
       user?.uid ?
         <>
           <li><Link to='/dashboard'>Dashboard</Link></li>
+          <li><Link to='/myProducts'>Products</Link></li>
           <li><button onClick={handleLogOut} className='btn btn-error text-black rounded-lg'>Log Out</button></li>
+          
         </>
         :
         <li><Link to='/login'>Login</Link></li>

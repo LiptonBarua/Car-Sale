@@ -2,13 +2,16 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { signIn, googleSignIn} = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location= useLocation();
 
+    const from = location.state?.from?.pathname || '/';
     const googleProvider = new GoogleAuthProvider();
     
     const handleLogin = data => {
@@ -16,7 +19,8 @@ const Login = () => {
         .then(result=>{
             const user= result.user;
             console.log(user);
-            toast.success('Login Success')
+            toast.success('Login Success');
+            navigate(from, {replace: true})
         })
         .catch(error=>{
             console.log(error)

@@ -1,13 +1,22 @@
 import { GoogleAuthProvider } from 'firebase/auth';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import useToken from '../../Hookes/useToken';
+
 
 const SignUp = () => {
     const {createUser, googleSignIn, updateUser} =useContext(AuthContext)
     const {register, handleSubmit, formState: { errors}} = useForm();
+    const[createdUserEmaii, setCreatedUserEmail] = useState('')
+    const [token] =useToken(createdUserEmaii);
+    const navigate= useNavigate();
+
+    if(token){
+        navigate('/')
+     }
   
     const googleProvider = new GoogleAuthProvider()
     const handleSignUp = data => {
@@ -21,7 +30,10 @@ const SignUp = () => {
                     displayName: data.name
                 }
                 updateUser(userInfo)
-                .then(()=>{})
+                .then(()=>{
+                    savedUser(data.name, data.email);
+                   
+                })
                 .catch(()=>{})
             })
             .catch(error=>{
@@ -36,8 +48,26 @@ const SignUp = () => {
             const user=result.user;
             toast.success('User Created Successfully')
         })
-        .then(error=>console.log(error))
+        .catch(error=>console.log(error))
     }
+
+    const savedUser=(name, email)=>{
+
+         const users={name, email}
+         fetch('http://localhost:8000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(users)
+         })
+         .then(res=>res.json())
+         .then(data=>{
+            setCreatedUserEmail(email)
+         })
+    }
+
+
 
     return (
         <div className=' flex justify-center items-center my-16  text-white' >

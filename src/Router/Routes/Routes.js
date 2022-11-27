@@ -8,6 +8,7 @@ import Login from "../../Pages/Login/Login";
 import Products from "../../Pages/Category/Categorys";
 import SignUp from "../../Pages/SignUp/SignUp";
 import Bookings from "../../Pages/BookingCollection/Bookings";
+import MyProducts from "../../Pages/MyProducts/MyProducts";
 
 const router=createBrowserRouter([
 {
@@ -23,6 +24,9 @@ const router=createBrowserRouter([
         },
         {
             path: '/blog', element: <Blog></Blog>
+        },
+        {
+           path: '/myProducts', element: <MyProducts></MyProducts>
         },
         {
          path: '/login', element: <Login></Login>

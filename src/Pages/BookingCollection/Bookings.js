@@ -5,7 +5,11 @@ const Bookings = () => {
     const {data:booking =[]} = useQuery({
         queryKey: ['booking'],
         queryFn: async()=>{
-            const res= await fetch('http://localhost:8000/booking')
+            const res= await fetch('http://localhost:8000/booking',{
+              headers:{
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+              }
+            })
             const data= await res.json();
             return data;
         }
@@ -27,7 +31,7 @@ const Bookings = () => {
     <tbody>
     
      {
-        booking.map((booking,i)=> <tr>
+        booking?.map((booking,i)=> <tr key={booking._id}>
             <th>{i+1}</th>
             <th>{booking.name}</th>
             <td>{booking.title}</td>
