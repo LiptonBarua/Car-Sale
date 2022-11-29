@@ -4,8 +4,6 @@ import { useLoaderData } from 'react-router-dom';
 import Category from './Category';
 import CategoryModel from './CategoryModel';
 
-// import ProductModel from './ProductModel';
-// import Products from './Products';
 
 
 const Product = () => {

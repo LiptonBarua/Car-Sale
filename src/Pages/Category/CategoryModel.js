@@ -1,6 +1,5 @@
 import React, { useContext} from 'react';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const CategoryModel = ({ productsName}) => {
@@ -30,7 +29,7 @@ const CategoryModel = ({ productsName}) => {
         fetch('http://localhost:8000/booking', {
             method: 'POST',
             headers: {
-                authorization: `bearer ${localStorage.getItem('accessToken')}`,
+               
                 'content-type': 'application/json'
             },
             body: JSON.stringify(booking)
@@ -60,7 +59,7 @@ const CategoryModel = ({ productsName}) => {
                         <input name='email' defaultValue={user?.email} type="email" placeholder="Type here" className="input input-bordered input-info w-full" />
                         <input type="text"  name='location'  placeholder="Meeting Location" required className="input input-bordered input-info w-full my-3" /><br />
                         <input type="number" name='phone' placeholder="Phone Name" required className="input input-bordered w-full mb-3" /><br />
-                        <Link to='/dashboard'><button type="submit" value='submit' className='w-full btn btn-accent'>SUBMIT</button></Link>
+                       <button type="submit" value='submit' className='w-full btn btn-accent'>SUBMIT</button>
                     </form>
                 </div>
             </div>

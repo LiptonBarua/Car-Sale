@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const CategorieCard = ({ categorie }) => {
+const CategorieCard = ({categorie}) => {
     const { image, brand} = categorie;
     console.log(categorie)
     return (

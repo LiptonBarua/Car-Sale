@@ -1,11 +1,15 @@
 import { async } from '@firebase/util';
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { } from 'react';
 import toast from 'react-hot-toast';
+import Loading from '../../Pages/Loading/Loading';
+// import DeleteUser from './DeleteUser';
 
 const AllUser = () => {
-    const {data:users=[], refetch} = useQuery({
-        queryKey: ['users'],
+
+
+    const {data:users=[],isLoading, refetch} = useQuery({
+        queryKey: ['user'],
         queryFn: async()=>{
             const res= await fetch('http://localhost:8000/users')
             const data= await res.json()
@@ -29,6 +33,28 @@ const AllUser = () => {
          
       })
   }
+ 
+  if(isLoading){
+    return <Loading></Loading>
+  }
+  
+  const handleDeleteUsers=user=>{
+    console.log(user)
+    fetch(`http://localhost:8000/users/${user._id}`,{
+        method: 'DELETE',
+        headers:{
+            authorization: `bearer ${localStorage.getItem('accessToken')}`
+        }
+    })
+    .then(res=>res.json())
+    .then(data=>{
+        if(data.deletedCount>0){
+            toast.success('Doctor deleted Successfully')
+            refetch()
+        }
+     
+    })
+}
     return (
         <div>
         <div className="overflow-x-auto">
@@ -46,18 +72,22 @@ const AllUser = () => {
   <tbody>
   
    {
-      users?.map((users,i)=> <tr key={users._id}>
+      users?.map((user,i)=> <tr key={user._id}>
           <th>{i+1}</th>
-          <th>{users.name}</th>
-          <th>{users.email}</th>
-          <td>{users?.role !=="admin" && <button onClick={()=>handleMakeAdmin(users._id)} className='btn btn-xs btn-primary'>Make Admin</button>}</td>
-          <th><button className='btn btn-sm btn-error'>Delete</button></th>
-    
+          <th>{user.name}</th>
+          <th>{user.email}</th>
+          <td>{user?.role !=="admin" && <button onClick={()=>handleMakeAdmin(user._id)} className='btn btn-xs btn-primary'>Make Admin</button>}</td>
+          <td>
+           <button onClick={()=>handleDeleteUsers(user)}>Delete</button>
+                
+                </td>
+                
         </tr>)
    }
   </tbody>
 </table>
 </div>
+
       </div>
     );
 };

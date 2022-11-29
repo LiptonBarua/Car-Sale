@@ -8,63 +8,64 @@ import useToken from '../../Hookes/useToken';
 
 
 const SignUp = () => {
-    const {createUser, googleSignIn, updateUser} =useContext(AuthContext)
-    const {register, handleSubmit, formState: { errors}} = useForm();
-    const[createdUserEmaii, setCreatedUserEmail] = useState('')
-    const [token] =useToken(createdUserEmaii);
-    const navigate= useNavigate();
+    const { createUser, googleSignIn, updateUser } = useContext(AuthContext)
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const [createdUserEmaii, setCreatedUserEmail] = useState('')
+    const [token] = useToken(createdUserEmaii);
+    const navigate = useNavigate();
 
-    if(token){
+    if (token) {
         navigate('/')
-     }
-  
+    }
+
     const googleProvider = new GoogleAuthProvider()
     const handleSignUp = data => {
-    
+
         createUser(data.email, data.password)
-            .then(result=>{
-                const user= result.user;
+            .then(result => {
+                const user = result.user;
                 console.log(user);
                 toast.success('User Created Successfully')
-                const userInfo={
+                const userInfo = {
                     displayName: data.name
                 }
                 updateUser(userInfo)
-                .then(()=>{
-                    savedUser(data.name, data.email);
-                   
-                })
-                .catch(()=>{})
+                    .then(() => {
+                        savedUser(data.name, data.email);
+
+                    })
+                    .catch(() => { })
             })
-            .catch(error=>{
-               console.log(error)
+            .catch(error => {
+                console.log(error)
             })
- 
+
     }
 
-    const handleGoogleSignIn=()=>{
+    const handleGoogleSignIn = () => {
         googleSignIn(googleProvider)
-        .then(result=>{
-            const user=result.user;
-            toast.success('User Created Successfully')
-        })
-        .catch(error=>console.log(error))
+            .then(result => {
+                const user = result.user;
+                toast.success('User Created Successfully');
+                navigate('/')
+            })
+            .catch(error => console.log(error))
     }
 
-    const savedUser=(name, email)=>{
+    const savedUser = (name, email) => {
 
-         const users={name, email}
-         fetch('http://localhost:8000/users', {
+        const users = { name, email }
+        fetch('http://localhost:8000/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
             body: JSON.stringify(users)
-         })
-         .then(res=>res.json())
-         .then(data=>{
-            setCreatedUserEmail(email)
-         })
+        })
+            .then(res => res.json())
+            .then(data => {
+                setCreatedUserEmail(email)
+            })
     }
 
 
@@ -85,6 +86,14 @@ const SignUp = () => {
                         <input type="email" {...register("email", { required: "Email Address is required" })}
                             className="input input-bordered w-full max-w-xs" />
                         {errors.email && <p role="alert" className='text-red-500'>{errors.email?.message}</p>}
+                    </div>
+                    <div className="form-control w-full max-w-xs">
+                        <label className="label"><span className="label-text">Select Your Role</span></label>
+                        <select {...register("role")} className="select input-bordered w-full max-w-xs">
+                     
+                                <option>Seller</option>
+                                <option>Buyer</option>
+                        </select>
                     </div>
                     <div className="form-control w-full mb-5 max-w-xs">
                         <label className="label"><span className="label-text">Password</span></label>
