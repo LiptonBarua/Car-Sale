@@ -33,6 +33,22 @@ const AllUser = () => {
          
       })
   }
+    const handleMakeVerify=id=>{
+      fetch(`http://localhost:8000/users/verified/${id}`,{
+          method: 'PUT',
+          headers: {
+            authorization: `bearer ${localStorage.getItem('accessToken')}`
+          }
+      })
+      .then(res=>res.json())
+      .then(data=>{
+        if(data.modifiedCount > 0){
+          toast.success('make admin successfully');
+          refetch();
+        }
+         
+      })
+  }
  
   if(isLoading){
     return <Loading></Loading>
@@ -65,6 +81,8 @@ const AllUser = () => {
       <th></th>
       <th>Name</th>
       <th>Email</th>
+      <th>Role</th>
+      <th>Verified</th>
       <th>Admin</th>
       <th>Delete</th>
     </tr>
@@ -76,11 +94,10 @@ const AllUser = () => {
           <th>{i+1}</th>
           <th>{user.name}</th>
           <th>{user.email}</th>
+          <th>{user.roler? user.roler: user.role}</th>
+          <td>{user?.roler ==="Seller" &&  user?.isVerified !=='verified' && user?.role !=="admin"  && <button onClick={()=>handleMakeVerify(user._id)} className='btn btn-xs btn-primary'>Make Verify</button>}</td>
           <td>{user?.role !=="admin" && <button onClick={()=>handleMakeAdmin(user._id)} className='btn btn-xs btn-primary'>Make Admin</button>}</td>
-          <td>
-           <button onClick={()=>handleDeleteUsers(user)}>Delete</button>
-                
-                </td>
+          <td><button onClick={()=>handleDeleteUsers(user)}>Delete</button></td>
                 
         </tr>)
    }
