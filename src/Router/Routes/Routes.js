@@ -28,7 +28,7 @@ const router=createBrowserRouter([
         {
             path: '/product/:brand', 
             element: <PrivateRouter><Products></Products></PrivateRouter>,
-            loader: ({params})=>fetch(`http://localhost:8000/product/${params.brand}`)
+            loader: ({params})=>fetch(`https://assianment-12-ashy.vercel.app/product/${params.brand}`)
 
         },
         {
@@ -62,7 +62,7 @@ const router=createBrowserRouter([
         {
             path: '/dashboard/payments/:id', 
             element: <Payment></Payment>,
-            loader: ({params})=>fetch(`http://localhost:8000/booking/${params.id}`)
+            loader: ({params})=>fetch(`https://assianment-12-ashy.vercel.app/booking/${params.id}`)
         }
     ]
 },

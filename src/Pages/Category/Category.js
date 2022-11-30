@@ -12,7 +12,7 @@ const Category = ({products, setProductsName}) => {
     console.log(userData)
 		useEffect(() => {
 			
-			fetch(`http://localhost:8000/users`)
+			fetch(`https://assianment-12-ashy.vercel.app/users`)
 				.then(res => res.json())
 			.then(data => setLoadUserData(data))
 		}, []);

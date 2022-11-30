@@ -26,7 +26,7 @@ const CategoryModel = ({ productsName}) => {
             title
         }
 
-        fetch('http://localhost:8000/booking', {
+        fetch('https://assianment-12-ashy.vercel.app/booking', {
             method: 'POST',
             headers: {
                

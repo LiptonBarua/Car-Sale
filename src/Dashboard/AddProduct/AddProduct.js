@@ -22,7 +22,7 @@ const AddProduct = () => {
     const { data: categories = [] } = useQuery({
         queryKey: ['categories'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:8000/category')
+            const res = await fetch('https://assianment-12-ashy.vercel.app/category')
             const data = await res.json();
             return data;
         }
@@ -60,7 +60,7 @@ const AddProduct = () => {
                         year,
                         date
                     }
-                    fetch('http://localhost:8000/product', {
+                    fetch('https://assianment-12-ashy.vercel.app/product', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',
@@ -99,11 +99,6 @@ const AddProduct = () => {
                             {errors.image && <p role="alert" className='text-red-500'>{errors.image?.message}</p>}
                         </div>
 
-                        {/* <div className="form-control w-full max-w-xs">
-                            <label className="label"><span className="label-text">Year</span></label>
-                            <input placeholder='Year' type="number" required {...register("year", { required: 'Year is Required' })} className="input input-bordered w-full max-w-xs" />
-                            {errors.year && <p role="alert" className='text-red-500'>{errors.year?.message}</p>}
-                        </div> */}
                         <div className="form-control w-full max-w-xs">
                             <label className="label"><span className="label-text">Saller Name</span></label>
                             <input placeholder='Enter Your Name' required type="text" {...register("name", { required: 'Name is Required' })} className="input input-bordered w-full max-w-xs" />

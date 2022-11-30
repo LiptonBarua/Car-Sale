@@ -55,7 +55,7 @@ const SignUp = () => {
     const savedUser = (name, email, roler) => {
 
         const users = { name, email,roler}
-        fetch('http://localhost:8000/users', {
+        fetch('https://assianment-12-ashy.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
