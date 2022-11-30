@@ -1,8 +1,9 @@
+import moment from 'moment';
 import React from 'react';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 
 const MyProduct = ({product, handleDeleteProduct}) => {
-  const{_id,image, title, location, phone, date, time, original, resale, name, year} =product;
+  const{_id,image, title, location, phone, date, original, resale, name, year} =product;
     return (
         <div className="card card-compact w-80 h-[70%] shadow-lg bg-black">
        <PhotoProvider>
@@ -16,15 +17,15 @@ const MyProduct = ({product, handleDeleteProduct}) => {
           <p>Location: {location}</p>
           <p>Phone: {phone}</p>
           <div>
+        
+          <div className='flex justify-between'>
           <p>Original Price: {original}</p>
-          <div className='flex justify-between'>
           <p>Resale Price: {resale}</p>
-          <p>Year: {year}</p>
           </div>
           </div>
           <div className='flex justify-between'>
-            <p>Date: {date}</p>
-            <p>Time: {time}</p>
+          <p>Date: {moment.utc(date).local().startOf("seconds").fromNow()}</p>
+          <p>Year: {year}</p>
           </div>
           <button className="btn btn-success">Advertise</button>
           <button onClick={()=>handleDeleteProduct(_id)} className="btn btn-error">Delete</button>

@@ -48,7 +48,7 @@ const date = new Date();
                         title: data?.title,
                         location: data?.location,
                         original: parseFloat(data?.original),
-                        // date: data?.date,
+                        
                         time: data?.time,
                         resale: parseFloat(data?.resale),
                         image: imageData.data.url,
@@ -95,19 +95,7 @@ const date = new Date();
                             <input type="file" required {...register("image", { required: 'Name is Required' })} className="input input-bordered w-full max-w-xs" />
                             {errors.image && <p role="alert" className='text-red-500'>{errors.image?.message}</p>}
                         </div>
-                        <div className='flex'>
-                        <div className="form-control w-full max-w-xs mr-5">
-                            <label className="label"><span className="label-text">Date</span></label>
-                            <input placeholder='Product Name' type="date" required {...register("date", {required: 'Date is Required' })} className="input input-bordered w-full max-w-xs" />
-                            {errors.date && <p role="alert" className='text-red-500'>{errors.date?.message}</p>}
-                        </div>
-
-                        <div className="form-control w-full max-w-xs">
-                            <label className="label"><span className="label-text">Time</span></label>
-                            <input placeholder='Product Name' type="time" required {...register("time", {required: 'Time is Required' })} className="input input-bordered w-full max-w-xs" />
-                            {errors.time && <p role="alert" className='text-red-500'>{errors.time?.message}</p>}
-                        </div>
-                        </div>
+                   
                         <div className="form-control w-full max-w-xs">
                             <label className="label"><span className="label-text">Year</span></label>
                             <input placeholder='Year' type="number" required {...register("year", { required: 'Year is Required' })} className="input input-bordered w-full max-w-xs" />

@@ -33,17 +33,14 @@ const Category = ({products, setProductsName}) => {
           <h4 className='text-info text-lg flex items-center font-bold'>Saller Name: {sellerName}{userData?.isVerified &&<span className=' text-blue-500'><MdOutlineVerifiedUser></MdOutlineVerifiedUser></span>}</h4>
           <p>Location: {location}</p>
           <p>Phone: {phone}</p>
-          <div>
-          <p>Original Price: {original}</p>
+          
           <div className='flex justify-between'>
+          <p>Original Price: {original}</p>
           <p>Resale Price: {resale}</p>
-          <p>Year {year}</p>
-          </div>
-         
           </div>
           <div className='flex justify-between'>
             <p>Date: {moment.utc(date).local().startOf("seconds").fromNow()}</p>
-            <p>Time: {time}</p>
+            <p>Year {year}</p>
           </div>
          
           <div>

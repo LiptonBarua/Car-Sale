@@ -27,21 +27,19 @@ const DashboardLayout = () => {
           <ul className="menu p-4 w-80 text-base-content">
 
             {
-              isBuyer && <>
-              <li><Link to='/dashboard'>My Orders</Link></li>
-              </>
+              isBuyer &&  <li><Link to='/dashboard'>My Orders</Link></li>
             }
             {
               isAdmin && <>
 
-                <li><Link to='/allSeller'>All Users</Link></li>
+              <li><Link to='/dashboard/allSeller'>All Users</Link></li>
                
               </>
             }
             {
               isSeller && <>
-                <li><Link to='/addProduct'>Add Product</Link></li>
-                <li><Link to='/myProducts'>Products</Link></li>
+                <li><Link to='/dashboard/addProduct'>Add Product</Link></li>
+                <li><Link to='/dashboard/myProducts'>Products</Link></li>
               </>
             }
 

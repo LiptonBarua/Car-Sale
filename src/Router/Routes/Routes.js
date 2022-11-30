@@ -44,23 +44,23 @@ const router=createBrowserRouter([
     ]
 },
 {
-    path: '/', element: <PrivateRouter><DashboardLayout></DashboardLayout></PrivateRouter>,
+    path: '/dashboard', element: <PrivateRouter><DashboardLayout></DashboardLayout></PrivateRouter>,
      errorElement: <DefaultPage></DefaultPage>,
      children: [
         {
             path: '/dashboard', element: <Bookings></Bookings>
         },
         {
-            path: '/myProducts', element: <SellerRouter><MyProducts></MyProducts></SellerRouter>
+            path: '/dashboard/myProducts', element: <SellerRouter><MyProducts></MyProducts></SellerRouter>
          },
         {
-            path: '/addProduct', element: <SellerRouter><AddProduct></AddProduct></SellerRouter>
+            path: '/dashboard/addProduct', element: <SellerRouter><AddProduct></AddProduct></SellerRouter>
         },
         {
-            path: '/allSeller', element: <AdminRouter><AllUser></AllUser></AdminRouter>
+            path: '/dashboard/allSeller', element: <PrivateRouter><AdminRouter><AllUser></AllUser></AdminRouter></PrivateRouter>
         },
         {
-            path: 'payments/:id', 
+            path: '/dashboard/payments/:id', 
             element: <Payment></Payment>,
             loader: ({params})=>fetch(`http://localhost:8000/booking/${params.id}`)
         }
