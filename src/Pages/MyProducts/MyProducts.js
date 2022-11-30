@@ -10,7 +10,7 @@ const MyProducts = () => {
     const {user} = useContext(AuthContext);
 
 
-    const {data:myProducts=[], refetch, isLoading}=useQuery({
+ const {data:myProducts=[], refetch, isLoading}=useQuery({
         queryKey:['myProducts'],
         queryFn: async()=>{
             const res=await fetch(`http://localhost:8000/product?email=${user?.email}`)
@@ -38,13 +38,33 @@ const MyProducts = () => {
                 refetch()
             }
          
-        })
+        }) 
+    }
+
+
+    const handleAdvertice=_id=>{
+      fetch(`http://localhost:8000/advertice/${_id}`,{
+        method: 'PUT',
+        headers:{
+            authorization: `bearer ${localStorage.getItem('accessToken')}`
+        }
+
+      })
+      .then(res=>res.json())
+      .then(data=>{
+        console.log(data)
+        if(data.acknowledged>0){
+            toast.success('advertice added Successfully');
+            refetch()
+        }
+      })
+
     }
     return (
         <div>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-3 mt-10'>
             {
-                myProducts.map(product=><MyProduct key={product._id} product={product} handleDeleteProduct={handleDeleteProduct}></MyProduct>)
+                myProducts.map(product=><MyProduct key={product._id} product={product} handleDeleteProduct={handleDeleteProduct} handleAdvertice={handleAdvertice}></MyProduct>)
             }
         </div>
         </div>
