@@ -11,9 +11,9 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 const AddProduct = () => {
   
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const[selectedDay, setSelectedDay] =useState(new Date())
+  
 const {user}= useContext(AuthContext)
-    const date = format(selectedDay, 'PP')
+const date = new Date();
     const imgHostKey = process.env.REACT_APP_imgbb_key;
 
     
@@ -48,13 +48,14 @@ const {user}= useContext(AuthContext)
                         title: data?.title,
                         location: data?.location,
                         original: parseFloat(data?.original),
-                        date: data?.date,
+                        // date: data?.date,
                         time: data?.time,
                         resale: parseFloat(data?.resale),
                         image: imageData.data.url,
                         brand: data?.brand,
                         phone:data?.phone,
-                        year: data?.year
+                        year: data?.year,
+                        date
                     }
                     fetch('http://localhost:8000/product', {
                         method: 'POST',

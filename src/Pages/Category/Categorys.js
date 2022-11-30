@@ -15,7 +15,7 @@ const Product = () => {
   console.log(products)
     return (
       <section className='my-10'>
-         <div className='grid grid-cols-1 md:grid-cols-3 gap-4'>
+         <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
         
         {
           products?.map(products=><Category key={products._id} products={products} setProductsName={setProductsName}></Category>)

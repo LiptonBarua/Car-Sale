@@ -1,31 +1,38 @@
-import React, { useContext, useEffect, useState } from 'react';
-// import { useQuery } from '@tanstack/react-query';
+import React, { useContext } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
-// import Loading from '../../Pages/Loading/Loading';
+import Loading from '../../Pages/Loading/Loading';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import axios from "axios";
+
+
 
 
 const Bookings = () => {
+   const {user} = useContext(AuthContext);
 
-  const {user} = useContext(AuthContext);
-  const [bookings, setBookings] = useState([])
+  const [bookings, setPost] = React.useState(null);
+  const baseURL = `http://localhost:8000/booking?email=${user?.email}`;
+
+    React.useEffect(() => {
+      axios.get(baseURL).then((response) => {
+        setPost(response.data);
+      });
+    }, [user?.email]);
   
-  
-  useEffect(()=>{
-  if(user?.email){
-      fetch(`http://localhost:8000/booking?email=${user?.email}`,{
-        headers:{
-          authorization: `Bearer ${localStorage.getItem('accessToken')}`
-        }
-      })
-      .then(res=>res.json())
-      .then(data=>setBookings(data))
-  }
-  }, [user?.email])
+    if (!bookings) return null;
+
+
+
+
+
 
 
     return (
-        <div>
+   <div>
+    <h1 className='text-2xl'>My Orders: {bookings.length}</h1>
+          <div>
+          
           <div className="overflow-x-auto">
   <table className="table table-zebra w-full">
 
@@ -61,6 +68,7 @@ const Bookings = () => {
   </table>
 </div>
         </div>
+   </div>
     );
 };
 

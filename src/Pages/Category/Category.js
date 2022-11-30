@@ -1,4 +1,6 @@
+import moment from 'moment/moment';
 import React, { useEffect, useState } from 'react';
+import { MdOutlineVerifiedUser } from "react-icons/md";
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 
@@ -20,15 +22,15 @@ const Category = ({products, setProductsName}) => {
 		setUserData(data);
 	}, [email, loadUserData])
     return (
-        <div className="card card-compact h-[74%] shadow-xl">
+        <div className="card card-compact h-[74%] shadow-lg bg-black">
        <PhotoProvider>
         <PhotoView src={image}>
         <figure><img src={image} className='h-96' alt="" /></figure>
         </PhotoView>
        </PhotoProvider>
         <div className="card-body">
-          <h2 className="card-title">{title}</h2>
-          <h3 className='text-info font-bold'>Saller Name:{name}</h3>
+          <h2 className="card-title text-2xl">{title}</h2>
+          <h4 className='text-info text-lg flex items-center font-bold'>Saller Name: {sellerName}{userData?.isVerified &&<span className=' text-blue-500'><MdOutlineVerifiedUser></MdOutlineVerifiedUser></span>}</h4>
           <p>Location: {location}</p>
           <p>Phone: {phone}</p>
           <div>
@@ -36,13 +38,11 @@ const Category = ({products, setProductsName}) => {
           <div className='flex justify-between'>
           <p>Resale Price: {resale}</p>
           <p>Year {year}</p>
-          <p>
-					{sellerName}{userData?.isVerified && <span className='ml-5 text-blue-500'>verified</span>}
-				</p>
           </div>
+         
           </div>
           <div className='flex justify-between'>
-            <p>Date: {date}</p>
+            <p>Date: {moment.utc(date).local().startOf("seconds").fromNow()}</p>
             <p>Time: {time}</p>
           </div>
          

@@ -8,23 +8,7 @@ import MyProduct from './MyProduct';
 const MyProducts = () => {
 
     const {user} = useContext(AuthContext);
-    // const [myProducts, setOrders] = useState([]);
 
-    // if(loading){
-    //     return <Loading></Loading>
-    // }
-    
-    // useEffect(()=>{
-    // if(user?.email){
-    //     fetch(`http://localhost:8000/product?email=${user?.email}`,{
-    //       headers:{
-    //         authorization: `Bearer ${localStorage.getItem('accessToken')}`
-    //       }
-    //     })
-    //     .then(res=>res.json())
-    //     .then(data=>setOrders(data))
-    // }
-    // }, [user?.email])
 
     const {data:myProducts=[], refetch, isLoading}=useQuery({
         queryKey:['myProducts'],

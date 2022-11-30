@@ -94,7 +94,7 @@ const AllUser = () => {
           <th>{i+1}</th>
           <th>{user.name}</th>
           <th>{user.email}</th>
-          <th>{user.roler? user.roler: user.role}</th>
+          <th>{user.role==='admin' ? user.role: user.roler}</th>
           <td>{user?.roler ==="Seller" &&  user?.isVerified !=='verified' && user?.role !=="admin"  && <button onClick={()=>handleMakeVerify(user._id)} className='btn btn-xs btn-primary'>Make Verify</button>}</td>
           <td>{user?.role !=="admin" && <button onClick={()=>handleMakeAdmin(user._id)} className='btn btn-xs btn-primary'>Make Admin</button>}</td>
           <td><button onClick={()=>handleDeleteUsers(user)}>Delete</button></td>

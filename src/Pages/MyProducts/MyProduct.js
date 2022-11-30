@@ -4,7 +4,7 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 const MyProduct = ({product, handleDeleteProduct}) => {
   const{_id,image, title, location, phone, date, time, original, resale, name, year} =product;
     return (
-        <div className="card card-compact h-[74%] shadow-xl">
+        <div className="card card-compact w-80 h-[70%] shadow-lg bg-black">
        <PhotoProvider>
         <PhotoView src={image}>
         <figure><img src={image} className='h-96' alt="" /></figure>
