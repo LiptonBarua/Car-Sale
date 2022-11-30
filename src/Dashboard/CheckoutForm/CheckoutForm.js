@@ -10,7 +10,7 @@ const CheckoutForm = ({booking}) => {
     const {price, name, email, _id} = booking;
     useEffect(() => {
    
-     fetch("https://assianment-12-ashy.vercel.app/create-payment-intent", {
+     fetch("https://assianment-server-12.vercel.app/create-payment-intent", {
        method: "POST",
        headers: {
           "Content-Type": "application/json", 
@@ -75,7 +75,7 @@ const CheckoutForm = ({booking}) => {
                    bookingId: _id
             }
   
-            fetch('https://assianment-12-ashy.vercel.app/payments', {
+            fetch('https://assianment-server-12.vercel.app/payments', {
               method: 'POST',
               headers: {
                 'content-type': 'application/json',

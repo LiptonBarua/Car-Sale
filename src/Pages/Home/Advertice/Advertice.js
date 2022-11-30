@@ -6,7 +6,7 @@ const Advertice = () => {
   
     const[advertices, setAdvertice]=useState([])
     useEffect(()=>{
-      fetch(`https://assianment-12-ashy.vercel.app/products?advertice=true`)
+      fetch(`https://assianment-server-12.vercel.app/products?advertice=true`)
       .then(res=>res.json())
       .then(data=>{
         console.log(data)

@@ -13,7 +13,7 @@ const MyProducts = () => {
  const {data:myProducts=[], refetch, isLoading}=useQuery({
         queryKey:['myProducts'],
         queryFn: async()=>{
-            const res=await fetch(`https://assianment-12-ashy.vercel.app/product?email=${user?.email}`)
+            const res=await fetch(`https://assianment-server-12.vercel.app/product?email=${user?.email}`)
             const data= await res.json();
             return data;
         }
@@ -24,7 +24,7 @@ const MyProducts = () => {
   
     }
     const handleDeleteProduct=id=>{
-        fetch(`https://assianment-12-ashy.vercel.app/product/${id}`,{
+        fetch(`https://assianment-server-12.vercel.app/${id}`,{
             method: 'DELETE',
             headers:{
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -43,7 +43,7 @@ const MyProducts = () => {
 
 
     const handleAdvertice=_id=>{
-      fetch(`https://assianment-12-ashy.vercel.app/advertice/${_id}`,{
+      fetch(`https://assianment-server-12.vercel.app/advertice/${_id}`,{
         method: 'PUT',
         headers:{
             authorization: `bearer ${localStorage.getItem('accessToken')}`

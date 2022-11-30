@@ -14,7 +14,7 @@ const Bookings = () => {
    const [isBuyer] = useBuyer(user?.email);
 
   const [bookings, setPost] = React.useState(null);
-  const baseURL = `https://assianment-12-ashy.vercel.app/booking?email=${user?.email}`;
+  const baseURL = `https://assianment-server-12.vercel.app/booking?email=${user?.email}`;
 
     React.useEffect(() => {
       axios.get(baseURL).then((response) => {

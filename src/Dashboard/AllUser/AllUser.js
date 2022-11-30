@@ -11,14 +11,14 @@ const AllUser = () => {
     const {data:users=[],isLoading, refetch} = useQuery({
         queryKey: ['user'],
         queryFn: async()=>{
-            const res= await fetch('https://assianment-12-ashy.vercel.app/users')
+            const res= await fetch('https://assianment-server-12.vercel.app/users')
             const data= await res.json()
             return data;
         }
     })
 
     const handleMakeAdmin=id=>{
-      fetch(`https://assianment-12-ashy.vercel.app/users/admin/${id}`,{
+      fetch(`https://assianment-server-12.vercel.app/users/admin/${id}`,{
           method: 'PUT',
           headers: {
             authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -34,7 +34,7 @@ const AllUser = () => {
       })
   }
     const handleMakeVerify=id=>{
-      fetch(`https://assianment-12-ashy.vercel.app/users/verified/${id}`,{
+      fetch(`https://assianment-server-12.vercel.app/users/verified/${id}`,{
           method: 'PUT',
           headers: {
             authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -56,7 +56,7 @@ const AllUser = () => {
   
   const handleDeleteUsers=user=>{
     console.log(user)
-    fetch(`https://assianment-12-ashy.vercel.app/users/${user._id}`,{
+    fetch(`https://assianment-server-12.vercel.app/users/${user._id}`,{
         method: 'DELETE',
         headers:{
             authorization: `bearer ${localStorage.getItem('accessToken')}`
