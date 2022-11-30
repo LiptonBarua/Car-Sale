@@ -3,21 +3,23 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
-import {} from 'react-day-picker';
+import { } from 'react-day-picker';
 import { format } from 'date-fns';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 
 const AddProduct = () => {
-  
+
     const { register, handleSubmit, formState: { errors } } = useForm();
-  
-const {user}= useContext(AuthContext)
-const date = new Date();
+
+    const { user } = useContext(AuthContext)
+    const date = new Date();
+    const year= new Date();
+
     const imgHostKey = process.env.REACT_APP_imgbb_key;
 
-    
-    const { data:categories=[] } = useQuery({
+
+    const { data: categories = [] } = useQuery({
         queryKey: ['categories'],
         queryFn: async () => {
             const res = await fetch('http://localhost:8000/category')
@@ -48,13 +50,14 @@ const date = new Date();
                         title: data?.title,
                         location: data?.location,
                         original: parseFloat(data?.original),
-                        
+
                         time: data?.time,
                         resale: parseFloat(data?.resale),
                         image: imageData.data.url,
                         brand: data?.brand,
-                        phone:data?.phone,
-                        year: data?.year,
+                        phone: data?.phone,
+                        // year: data?.year,
+                        year,
                         date
                     }
                     fetch('http://localhost:8000/product', {
@@ -84,7 +87,7 @@ const date = new Date();
                 <div className='w-96 p-7'>
                     <form onSubmit={handleSubmit(handleAddProduct)}>
 
-                       
+
                         <div className="form-control w-full max-w-xs">
                             <label className="label"><span className="label-text">Product Name</span></label>
                             <input placeholder='Product Name' type="text" required {...register("title", { required: 'Name is Required' })} className="input input-bordered w-full max-w-xs" />
@@ -95,36 +98,36 @@ const date = new Date();
                             <input type="file" required {...register("image", { required: 'Name is Required' })} className="input input-bordered w-full max-w-xs" />
                             {errors.image && <p role="alert" className='text-red-500'>{errors.image?.message}</p>}
                         </div>
-                   
-                        <div className="form-control w-full max-w-xs">
+
+                        {/* <div className="form-control w-full max-w-xs">
                             <label className="label"><span className="label-text">Year</span></label>
                             <input placeholder='Year' type="number" required {...register("year", { required: 'Year is Required' })} className="input input-bordered w-full max-w-xs" />
                             {errors.year && <p role="alert" className='text-red-500'>{errors.year?.message}</p>}
-                        </div>
+                        </div> */}
                         <div className="form-control w-full max-w-xs">
                             <label className="label"><span className="label-text">Saller Name</span></label>
-                            <input placeholder='Enter Your Name' required type="text" {...register("name", {required: 'Name is Required' })} className="input input-bordered w-full max-w-xs" />
+                            <input placeholder='Enter Your Name' required type="text" {...register("name", { required: 'Name is Required' })} className="input input-bordered w-full max-w-xs" />
                             {errors.name && <p role="alert" className='text-red-500'>{errors.name?.message}</p>}
                         </div>
-                     <div className='flex'>
-                     <div className="form-control w-full max-w-xs mr-5">
-                            <label className="label"><span className="label-text">Location</span></label>
-                            <input placeholder='Location' type="text" required {...register("location", {required: 'Location is Required' })} className="input input-bordered w-full max-w-xs" />
-                            {errors.location && <p role="alert" className='text-red-500'>{errors.location?.message}</p>}
+                        <div className='flex'>
+                            <div className="form-control w-full max-w-xs mr-5">
+                                <label className="label"><span className="label-text">Location</span></label>
+                                <input placeholder='Location' type="text" required {...register("location", { required: 'Location is Required' })} className="input input-bordered w-full max-w-xs" />
+                                {errors.location && <p role="alert" className='text-red-500'>{errors.location?.message}</p>}
+                            </div>
+
+                            <div className="form-control w-full max-w-xs">
+                                <label className="label"><span className="label-text">Brand Name</span></label>
+                                <select {...register("brand")} required className="select input-bordered w-full max-w-xs">
+                                    <option disabled selected>Select Your Mobile Brand</option>
+                                    {
+                                        categories?.map(categorie => <option key={categorie._id} value={categorie.brand}>{categorie.brand}</option>)
+                                    }
+                                </select>
+                            </div>
+
                         </div>
-                     
                         <div className="form-control w-full max-w-xs">
-                            <label className="label"><span className="label-text">Brand Name</span></label>
-                            <select {...register("brand")} required className="select input-bordered w-full max-w-xs">
-                                <option  disabled selected>Select Your Mobile Brand</option>
-                                {
-                                    categories?.map(categorie =><option key={categorie._id} value={categorie.brand}>{categorie.brand}</option>)
-                                }
-                            </select>
-                        </div>
-                        
-                     </div>
-                     <div className="form-control w-full max-w-xs">
                             <label className="label"><span className="label-text">Mobile Number</span></label>
                             <input placeholder='Enter Your Mobile Number' required type="text" {...register("phone", { required: 'Phone is Required' })} className="input input-bordered w-full max-w-xs" />
                             {errors.phone && <p role="alert" className='text-red-500'>{errors.phone?.message}</p>}
@@ -154,3 +157,5 @@ const date = new Date();
 };
 
 export default AddProduct;
+
+

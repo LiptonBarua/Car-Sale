@@ -40,7 +40,7 @@ const Category = ({products, setProductsName}) => {
           </div>
           <div className='flex justify-between'>
             <p>Date: {moment.utc(date).local().startOf("seconds").fromNow()}</p>
-            <p>Year {year}</p>
+            <p>Year {moment("20111031", "YYYYMMDD").fromNow()}</p>
           </div>
          
           <div>
