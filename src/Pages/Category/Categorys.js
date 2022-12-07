@@ -6,7 +6,7 @@ import CategoryModel from './CategoryModel';
 
 
 
-const Product = () => {
+const Categorys = () => {
  
   const [productsName, setProductsName] = useState('')
   
@@ -28,4 +28,4 @@ const Product = () => {
     );
 };
 
-export default Product;
+export default Categorys;

@@ -5,7 +5,7 @@ import AddProduct from "../../Dashboard/AddProduct/AddProduct";
 import Blog from "../../Pages/Blog/Blog";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
-import Products from "../../Pages/Category/Categorys"; 
+import Categorys from "../../Pages/Category/Categorys"; 
 import SignUp from "../../Pages/SignUp/SignUp";
 import MyProducts from "../../Pages/MyProducts/MyProducts";
 import Bookings from "../../Dashboard/BookingCollection/Bookings";
@@ -27,9 +27,9 @@ const router=createBrowserRouter([
         },
         {
             path: '/product/:brand', 
-            element: <PrivateRouter><Products></Products></PrivateRouter>,
-            loader: ({params})=>fetch(`https://assianment-server-12.vercel.app/${params.brand}`)
-
+         
+            element: <PrivateRouter><Categorys></Categorys></PrivateRouter>,
+            loader: ({params})=>fetch(`https://assianment-server-12.vercel.app/product/${params.brand}`)
         },
         {
             path: '/blog', element: <Blog></Blog>
