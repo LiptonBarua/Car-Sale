@@ -39,7 +39,7 @@ const Navber = () => {
             {manuItem}
           </ul>
         </div>
-        <Link to='/' className='font-bold text-3xl italic text-orange-500'>BD Mobile Marketing</Link>
+        <Link to='/' className='font-bold text-xl md:text-3xl italic text-orange-500'>BD Mobile Marketing</Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
