@@ -9,13 +9,13 @@ const CategoriesName = () => {
     const {data: categories=[]} = useQuery({
         queryKey: ['categories'],
         queryFn: async()=>{
-            const res=await fetch('https://assianment-server-12.vercel.app/category')
+            const res=await fetch('https://server12.vercel.app/category')
             const data= res.json();
             return data;
         }
     })
     return (
-        <div className='my-10'>
+        <div className='my-10 md:max-w-[1280px] mx-auto'>
             <h1 className='text-2xl text-center mb-6'>All Category</h1>
             <div className=' grid grid-cols-1 md:grid-cols-3 gap-6'>
             {

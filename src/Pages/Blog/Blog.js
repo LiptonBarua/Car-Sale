@@ -2,7 +2,7 @@ import React from 'react';
 
 const Blog = () => {
     return (
-        <div className='my-10'>
+        <div className='my-24 md:max-w-[1280px] mx-auto'>
             <h1 className='text-2xl'>1. What are the different ways to manage a state in a React application?</h1>
             <p className='mt-3 justify'><span className=' text-white px-3 mr-2 bg-red-500 text-xl'>Ans: </span>In this guide, we will uncover the several kinds of state in your React apps that you might not be aware of, plus how to manage them in the most effective way.</p>
             <h1 className='text-2xl'>2. How does prototypical inheritance work?</h1>

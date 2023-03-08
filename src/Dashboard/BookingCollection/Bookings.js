@@ -5,6 +5,7 @@ import Loading from '../../Pages/Loading/Loading';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import axios from "axios";
 import useBuyer from '../../Hookes/useBuyer';
+import './Booking.css'
 
 
 
@@ -14,7 +15,7 @@ const Bookings = () => {
    const [isBuyer] = useBuyer(user?.email);
 
   const [bookings, setPost] = React.useState(null);
-  const baseURL = `https://assianment-server-12.vercel.app/booking?email=${user?.email}`;
+  const baseURL = `https://server12.vercel.app/booking`;
 
     React.useEffect(() => {
       axios.get(baseURL).then((response) => {
@@ -34,7 +35,7 @@ const Bookings = () => {
    <>
 {
      isBuyer && <div>
-     <h1 className='text-2xl'>My Orders: {bookings.length}</h1>
+     <h1 className='text-2xl mt-10 mb-6'>My Orders: {bookings.length}</h1>
            <div>
            
            <div className="overflow-x-auto">
@@ -54,12 +55,12 @@ const Bookings = () => {
      
       {
          bookings?.map((booking,i)=> <tr key={booking._id}>
-             <th>{i+1}</th>
-             <th>{booking.name}</th>
-             <td>{booking.title}</td>
-             <td>{booking.price}</td>
-             <td>{booking.location}</td>
-             <td>{
+             <td  data-label='SL.No'>{i+1}</td>
+             <td  data-label='NAME'>{booking.name}</td>
+             <td  data-label='PRODUCT'>{booking.title}</td>
+             <td  data-label='PRICE'>{booking.price}</td>
+             <td  data-label='LOCATION'>{booking.location}</td>
+             <td  data-label='PAYMENT'>{
              booking.price && !booking.paid && <Link to={`/dashboard/payments/${booking._id}`}><button className='btn btn-primary btn-sm'>Pay Now</button></Link>
              }
              {

@@ -1,3 +1,4 @@
+import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
@@ -14,9 +15,21 @@ const DashboardLayout = () => {
   const [isSeller] = useSaller(user?.email);
   const [isBuyer] = useBuyer(user?.email);
 
+
+  const { data: sellectData = [] } = useQuery({
+    queryKey: ['sellectDatabase'],
+    queryFn: async () => {
+      const res = await fetch(`http://localhost:8000/users/${user?.email}`)
+      const data = await res.json()
+      return data;
+    }
+  })
+
   return (
     <div>
-      <Navber></Navber>
+       <Navber></Navber>
+<div className='my-24 md:max-w-[1280px] mx-auto'>
+     
       <div className="drawer drawer-mobile">
         <input id="my-drawer" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content">
@@ -24,7 +37,7 @@ const DashboardLayout = () => {
         </div>
         <div className="drawer-side">
           <label htmlFor="my-drawer" className="drawer-overlay"></label>
-          <ul className="menu p-4 w-80 text-base-content">
+          <ul className="menu py-4 w-80 text-base-content">
 
             {
               isBuyer &&  <li><Link to='/dashboard'>My Orders</Link></li>
@@ -48,6 +61,8 @@ const DashboardLayout = () => {
         </div>
       </div>
     </div>
+    </div>
+    
   );
 };
 

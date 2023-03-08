@@ -29,10 +29,10 @@ const router=createBrowserRouter([
             path: '/product/:brand', 
          
             element: <PrivateRouter><Categorys></Categorys></PrivateRouter>,
-            loader: ({params})=>fetch(`https://assianment-server-12.vercel.app/product/${params.brand}`)
+            loader: ({params})=>fetch(`https://server12.vercel.app/product/${params.brand}`)
         },
         {
-            path: '/blog', element: <Blog></Blog>
+            path: '/blog', element: <PrivateRouter><Blog></Blog></PrivateRouter>
         },
     
         {
@@ -48,7 +48,7 @@ const router=createBrowserRouter([
      errorElement: <DefaultPage></DefaultPage>,
      children: [
         {
-            path: '/dashboard', element: <Bookings></Bookings>
+            path: '/dashboard', element: <PrivateRouter><Bookings></Bookings></PrivateRouter>
         },
         {
             path: '/dashboard/myProducts', element: <SellerRouter><MyProducts></MyProducts></SellerRouter>
@@ -57,12 +57,12 @@ const router=createBrowserRouter([
             path: '/dashboard/addProduct', element: <SellerRouter><AddProduct></AddProduct></SellerRouter>
         },
         {
-            path: '/dashboard/allSeller', element: <PrivateRouter><AdminRouter><AllUser></AllUser></AdminRouter></PrivateRouter>
+            path: '/dashboard/allSeller', index:true, element: <PrivateRouter><AdminRouter><AllUser></AllUser></AdminRouter></PrivateRouter>
         },
         {
             path: '/dashboard/payments/:id', 
             element: <Payment></Payment>,
-            loader: ({params})=>fetch(`https://assianment-server-12.vercel.app/booking/${params.id}`)
+            loader: ({params})=>fetch(`https://server12.vercel.app/booking/${params.id}`)
         }
     ]
 },

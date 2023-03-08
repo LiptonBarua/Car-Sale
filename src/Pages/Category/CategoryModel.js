@@ -26,7 +26,8 @@ const CategoryModel = ({ productsName}) => {
             title
         }
 
-        fetch('https://assianment-server-12.vercel.app/booking', {
+        console.log(booking)
+        fetch('https://server12.vercel.app/booking', {
             method: 'POST',
             headers: {
                
@@ -40,6 +41,7 @@ const CategoryModel = ({ productsName}) => {
             if(data.acknowledged){
                
                 toast.success('Booking add Successfully');
+            
             }
           
         })
@@ -59,7 +61,8 @@ const CategoryModel = ({ productsName}) => {
                         <input name='email' defaultValue={user?.email} type="email" placeholder="Type here" className="input input-bordered input-info w-full" />
                         <input type="text"  name='location'  placeholder="Meeting Location" required className="input input-bordered input-info w-full my-3" /><br />
                         <input type="number" name='phone' placeholder="Phone Name" required className="input input-bordered w-full mb-3" /><br />
-                       <button type="submit" value='submit' className='w-full btn btn-accent'>SUBMIT</button>
+                       
+                        <button type='submit'> <label htmlFor="product-modal" className="btn btn-sm w-full btn-primary">Submit</label></button>
                     </form>
                 </div>
             </div>
@@ -69,3 +72,5 @@ const CategoryModel = ({ productsName}) => {
 };
 
 export default CategoryModel;
+
+ 

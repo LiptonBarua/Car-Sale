@@ -1,9 +1,9 @@
-import { async } from '@firebase/util';
+
 import { useQuery } from '@tanstack/react-query';
 import React, { } from 'react';
 import toast from 'react-hot-toast';
 import Loading from '../../Pages/Loading/Loading';
-// import DeleteUser from './DeleteUser';
+import './AllUser.css'
 
 const AllUser = () => {
 
@@ -11,14 +11,14 @@ const AllUser = () => {
     const {data:users=[],isLoading, refetch} = useQuery({
         queryKey: ['user'],
         queryFn: async()=>{
-            const res= await fetch('https://assianment-server-12.vercel.app/users')
+            const res= await fetch('https://server12.vercel.app/users')
             const data= await res.json()
             return data;
         }
     })
 
     const handleMakeAdmin=id=>{
-      fetch(`https://assianment-server-12.vercel.app/users/admin/${id}`,{
+      fetch(`https://server12.vercel.app/users/admin/${id}`,{
           method: 'PUT',
           headers: {
             authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -34,7 +34,7 @@ const AllUser = () => {
       })
   }
     const handleMakeVerify=id=>{
-      fetch(`https://assianment-server-12.vercel.app/users/verified/${id}`,{
+      fetch(`https://server12.vercel.app/users/verified/${id}`,{
           method: 'PUT',
           headers: {
             authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -56,7 +56,7 @@ const AllUser = () => {
   
   const handleDeleteUsers=user=>{
     console.log(user)
-    fetch(`https://assianment-server-12.vercel.app/users/${user._id}`,{
+    fetch(`https://server12.vercel.app/users/${user._id}`,{
         method: 'DELETE',
         headers:{
             authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -73,7 +73,7 @@ const AllUser = () => {
 }
     return (
         <div>
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto my-10">
 <table className="table table-zebra w-full">
 
   <thead>
@@ -91,14 +91,13 @@ const AllUser = () => {
   
    {
       users?.map((user,i)=> <tr key={user._id}>
-          <th>{i+1}</th>
-          <th>{user.name}</th>
-          <th>{user.email}</th>
-          <th>{user.role==='admin' ? user.role: user.roler}</th>
-          <td>{user?.roler ==="Seller" &&  user?.isVerified !=='verified' && user?.role !=="admin"  && <button onClick={()=>handleMakeVerify(user._id)} className='btn btn-xs btn-primary'>Make Verify</button>}</td>
-          <td>{user?.role !=="admin" && <button onClick={()=>handleMakeAdmin(user._id)} className='btn btn-xs btn-primary'>Make Admin</button>}</td>
-          <td><button onClick={()=>handleDeleteUsers(user)}>Delete</button></td>
-                
+          <td data-label='S.No'>{i+1}</td>
+          <td data-label='NAME'>{user.name}</td>
+          <td data-label='EMAIL'>{user.email}</td>
+          <td data-label='ROLE'>{user.role==='admin' ? user.role: user.role}</td>
+          <td data-label='VERIFIED'>{user?.role ==="Seller" &&  user?.isVerified !=='verified' && user?.role !=="admin"  && <button onClick={()=>handleMakeVerify(user._id)} className='btn btn-xs btn-primary'>Make Verify</button>}</td>
+          <td data-label='ADMIN'>{user?.role !=="admin" && <button onClick={()=>handleMakeAdmin(user._id)} className='btn btn-xs btn-primary'>Make Admin</button>}</td>
+          <td data-label='DELETE'><button onClick={()=>handleDeleteUsers(user)}>Delete</button></td>               
         </tr>)
    }
   </tbody>

@@ -8,7 +8,7 @@ import useToken from '../../Hookes/useToken';
 
 
 const SignUp = () => {
-    const { createUser, googleSignIn, updateUser } = useContext(AuthContext)
+    const { createUser, googleSignIn, reset, updateUser } = useContext(AuthContext)
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [createdUserEmaii, setCreatedUserEmail] = useState('')
     const [token] = useToken(createdUserEmaii);
@@ -24,16 +24,23 @@ const SignUp = () => {
         createUser(data.email, data.password)
             .then(result => {
                 const user = result.user;
+               
                 console.log(user);
-                toast.success('User Created Successfully')
+                toast.success('User Created Successfully');
+                // reset();
+                
                 const userInfo = {
-                    displayName: data.name
+                    displayName: data.name,
+                    email: data.email,
+                    role: data.role
                 }
+                console.log(userInfo)
                 updateUser(userInfo)
                     .then(() => {
-                        savedUser(data.name, data.email, data.roler);
+                        savedUser(data.name, data.email, data.role);
 
                     })
+                    
                     .catch(() => { })
             })
             .catch(error => {
@@ -52,10 +59,11 @@ const SignUp = () => {
             .catch(error => console.log(error))
     }
 
-    const savedUser = (name, email, roler) => {
+    const savedUser = (name, email, role) => {
 
-        const users = { name, email,roler}
-        fetch('https://assianment-server-12.vercel.app/users', {
+        const users = { name, email,role}
+        console.log(users)
+        fetch('https://server12.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -89,7 +97,7 @@ const SignUp = () => {
                     </div>
                     <div className="form-control w-full max-w-xs">
                         <label className="label"><span className="label-text">Select Your Role</span></label>
-                        <select {...register("roler")} className="select input-bordered w-full max-w-xs">
+                        <select {...register("role")} className="select input-bordered w-full max-w-xs">
                      
                                 <option>Seller</option>
                                 <option>Buyer</option>

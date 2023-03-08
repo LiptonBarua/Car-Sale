@@ -13,7 +13,7 @@ const MyProducts = () => {
  const {data:myProducts=[], refetch, isLoading}=useQuery({
         queryKey:['myProducts'],
         queryFn: async()=>{
-            const res=await fetch(`https://assianment-server-12.vercel.app/product?email=${user?.email}`)
+            const res=await fetch(`https://server12.vercel.app/product?email=${user?.email}`)
             const data= await res.json();
             return data;
         }
@@ -24,7 +24,7 @@ const MyProducts = () => {
   
     }
     const handleDeleteProduct=id=>{
-        fetch(`https://assianment-server-12.vercel.app/${id}`,{
+        fetch(`https://server12.vercel.app/product/${id}`,{
             method: 'DELETE',
             headers:{
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -43,7 +43,7 @@ const MyProducts = () => {
 
 
     const handleAdvertice=_id=>{
-      fetch(`https://assianment-server-12.vercel.app/advertice/${_id}`,{
+      fetch(`https://server12.vercel.app/advertice/${_id}`,{
         method: 'PUT',
         headers:{
             authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -61,8 +61,8 @@ const MyProducts = () => {
 
     }
     return (
-        <div>
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-3 mt-10'>
+        <div className='my-24 md:max-w-[1280px] mx-auto'>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
             {
                 myProducts.map(product=><MyProduct key={product._id} product={product} handleDeleteProduct={handleDeleteProduct} handleAdvertice={handleAdvertice}></MyProduct>)
             }

@@ -19,7 +19,7 @@ const AddProduct = () => {
     const imgHostKey = process.env.REACT_APP_imgbb_key;
 
 
-    const { data: categories = [] } = useQuery({
+    const { data: categories = [], reset } = useQuery({
         queryKey: ['categories'],
         queryFn: async () => {
             const res = await fetch('https://assianment-server-12.vercel.app/category')
@@ -44,13 +44,12 @@ const AddProduct = () => {
                 if (imageData.success) {
 
                     const product = {
-                        sellerName: user?.displayName,
+                        // sellerName: user?.displayName,
                         email: user?.email,
                         name: data?.name,
                         title: data?.title,
                         location: data?.location,
                         original: parseFloat(data?.original),
-
                         time: data?.time,
                         resale: parseFloat(data?.resale),
                         image: imageData.data.url,
@@ -60,7 +59,7 @@ const AddProduct = () => {
                         year,
                         date
                     }
-                    fetch('https://assianment-server-12.vercel.app/product', {
+                    fetch('https://server12.vercel.app/product', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',
@@ -71,7 +70,7 @@ const AddProduct = () => {
                         .then(res => res.json())
                         .then(data => {
                             toast.success('Product Add is my Successfully');
-
+                            reset()
                         })
                         .catch(error => {
                             console.log(error.message)
@@ -101,7 +100,7 @@ const AddProduct = () => {
 
                         <div className="form-control w-full max-w-xs">
                             <label className="label"><span className="label-text">Saller Name</span></label>
-                            <input placeholder='Enter Your Name' required type="text" {...register("name", { required: 'Name is Required' })} className="input input-bordered w-full max-w-xs" />
+                            <input placeholder='Enter Your Name' defaultValue={user?.displayName} readOnly required type="text" {...register("name", { required: 'Name is Required' })} className="input input-bordered w-full max-w-xs" />
                             {errors.name && <p role="alert" className='text-red-500'>{errors.name?.message}</p>}
                         </div>
                         <div className='flex'>
@@ -152,5 +151,3 @@ const AddProduct = () => {
 };
 
 export default AddProduct;
-
-
