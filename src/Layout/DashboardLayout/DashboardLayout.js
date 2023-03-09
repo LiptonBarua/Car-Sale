@@ -28,33 +28,33 @@ const DashboardLayout = () => {
   return (
     <div>
        <Navber></Navber>
-<div className='my-24 md:max-w-[1280px] mx-auto'>
+<div>
      
       <div className="drawer drawer-mobile">
         <input id="my-drawer" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content">
+        <div className="drawer-content my-24">
           <Outlet></Outlet>
         </div>
         <div className="drawer-side">
           <label htmlFor="my-drawer" className="drawer-overlay"></label>
-          <ul className="menu py-4 w-80 text-base-content">
+          <ul className="menu my-24 py-4 w-80 text-base-content">
 
             {
-              isBuyer &&  <li><Link to='/dashboard'>My Orders</Link></li>
-            }
+              isBuyer &&  (<li><Link to='/dashboard'>My Orders</Link></li>
+            )}
             {
-              isAdmin && <>
+              isAdmin && (<>
 
               <li><Link to='/dashboard/allSeller'>All Users</Link></li>
                
               </>
-            }
+            )}
             {
-              isSeller && <>
+              isSeller && (<>
                 <li><Link to='/dashboard/addProduct'>Add Product</Link></li>
                 <li><Link to='/dashboard/myProducts'>Products</Link></li>
               </>
-            }
+            )}
 
           </ul>
 

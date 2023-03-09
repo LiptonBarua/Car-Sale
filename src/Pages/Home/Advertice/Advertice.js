@@ -34,7 +34,7 @@ const Advertice = () => {
               }
         </div>
         <div className='text-center'>
-        <button onClick={loadMore} className='btn bg-gradient-to-r from-purple-500 to-pink-500 text-black px-5'>See More</button>
+        <button onClick={loadMore} className='bg-lime-700 text-black font-bold  px-6 py-1'>See More</button>
         </div>
         </div>
     );

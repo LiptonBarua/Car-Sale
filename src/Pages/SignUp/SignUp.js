@@ -79,7 +79,7 @@ const SignUp = () => {
 
 
     return (
-        <div className=' flex justify-center items-center my-16  text-white' >
+        <div className=' flex justify-center items-center my-24  text-white' >
             <div data-theme="night" className='w-96 p-7 rounded-lg'>
                 <h2 className='text-3xl text-center'>Sign Up</h2>
                 <form onSubmit={handleSubmit(handleSignUp)}>

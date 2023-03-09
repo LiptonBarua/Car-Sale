@@ -51,7 +51,7 @@ const Login = () => {
         .then(error=>console.log(error))
     }
     return (
-        <div className='h-[400px] flex justify-center items-center my-16' >
+        <div className=' flex justify-center items-center my-24' >
             <div data-theme="night" className='w-96 p-7 rounded-lg'>
                 <h2 className='text-3xl text-center'>Login</h2>
                 <form onSubmit={handleSubmit(handleLogin)}>

@@ -74,7 +74,7 @@ const AllUser = () => {
     return (
         <div>
         <div className="overflow-x-auto my-10">
-<table className="table table-zebra w-full">
+<table className="table table-zebra w-full text-black">
 
   <thead>
     <tr>
