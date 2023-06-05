@@ -12,8 +12,8 @@ const Categorys = () => {
   const products= useLoaderData();
   console.log(products)
     return (
-      <section className='my-24 md:max-w-[1280px] mx-auto'>
-         <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
+      <section className='my-24 md:max-w-[92%] mx-auto'>
+         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
         
         {
           products?.map(products=><Category key={products._id} products={products} setProductsName={setProductsName}></Category>)

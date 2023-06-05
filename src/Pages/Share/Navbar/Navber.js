@@ -28,7 +28,7 @@ const Navber = () => {
 							<Link to={`${isSeller ? "/dashboard/addProduct":''}${isAdmin ? "/dashboard/allSeller":''}${isBuyer ? "/dashboard":''}`}>Dashboard</Link>
 						</li>
         
-          <li><button onClick={handleLogOut} className='bg-lime-700 text-black font-bold rounded-lg'>Log Out</button></li>
+          <li><button onClick={handleLogOut} className='bg-[#d01818] uppercase text-white font-semibold'>Log Out</button></li>
           
         </>
         :
@@ -37,27 +37,27 @@ const Navber = () => {
 
   </>
   return (
-    <div className="navbar fixed top-0 z-50 md:px-12 bg-black">
+    <div className="navbar fixed top-0 py-5 z-50 md:px-12 bg-white">
       <div className="navbar-start">
-         <label htmlFor="my-drawer" tabIndex={2} className="text-white lg:hidden">
+         <label htmlFor="my-drawer" tabIndex={2} className="text-black lg:hidden">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
           </label>
         <Link to='/' className='font-bold text-xl md:text-3xl italic text-orange-500'>
-          <img src={logo} alt="" className='w-20' />
+          <img src='https://carena.bolvo.com/wp-content/uploads/2019/05/logo.jpg' alt="" className='w-20 lg:w-36' />
         </Link>
       </div>
      <div className='navbar-end'>
      <div className="hidden lg:flex">
-        <ul className="menu menu-horizontal text-white p-0">
+        <ul className="menu menu-horizontal text-black p-0">
           {manuItem}
         </ul>
       </div>
      </div>
      <div className="dropdown dropdown-end">
-     <label tabIndex={0} className="text-white lg:hidden">
+     <label tabIndex={0} className="text-black lg:hidden">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
           </label>
-  <ul tabIndex={1} className="dropdown-content menu p-2 shadow bg-black text-white rounded-box w-52">
+  <ul tabIndex={1} className="dropdown-content menu mt-5 -mr-5 lg:mr-0 lg:mt-0 p-2 shadow bg-white text-black w-52">
   {manuItem}
   </ul>
 </div>

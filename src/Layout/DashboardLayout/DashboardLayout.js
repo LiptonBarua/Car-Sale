@@ -35,7 +35,7 @@ const DashboardLayout = () => {
         <div className="drawer-content my-24">
           <Outlet></Outlet>
         </div>
-        <div className="drawer-side">
+        <div className="drawer-side ">
           <label htmlFor="my-drawer" className="drawer-overlay"></label>
           <ul className="menu my-24 py-4 w-80 text-base-content">
 

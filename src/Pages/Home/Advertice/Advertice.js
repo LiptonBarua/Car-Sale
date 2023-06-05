@@ -26,14 +26,14 @@ const Advertice = () => {
 
 
     return (
-        <div className='my-24 md:max-w-[1280px] mx-auto'>
+        <div className='py-24 md:max-w-[92%] mx-auto'>
            <h1 className='text-2xl text-center mb-10'>All Advertice</h1>
-            <div className='grid grid-cols-1 md:grid-cols-3 gap-7'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
               {
                slice.map(advertice=><Advertices key={advertice._id} advertice={advertice} ></Advertices>)
               }
         </div>
-        <div className='text-center'>
+        <div className='text-center mt-8'>
         <button onClick={loadMore} className='bg-lime-700 text-black font-bold  px-6 py-1'>See More</button>
         </div>
         </div>

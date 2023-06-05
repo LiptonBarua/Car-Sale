@@ -72,7 +72,7 @@ const AllUser = () => {
     })
 }
     return (
-        <div>
+        <div className=''>
         <div className="overflow-x-auto my-10">
 <table className="table table-zebra w-full text-black">
 
