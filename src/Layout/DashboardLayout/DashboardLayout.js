@@ -30,14 +30,14 @@ const DashboardLayout = () => {
        <Navber></Navber>
 <div>
      
-      <div classNameName="drawer drawer-mobile">
-        <input id="my-drawer" type="checkbox" classNameName="drawer-toggle" />
-        <div classNameName="drawer-content my-24">
+      <div className="drawer drawer-mobile">
+        <input id="my-drawer" type="checkbox" className="drawer-toggle" />
+        <div className="drawer-content my-24">
           <Outlet></Outlet>
         </div>
-        <div classNameName="drawer-side ">
-          <label htmlFor="my-drawer" classNameName="drawer-overlay"></label>
-          <ul classNameName="menu my-24 py-4 w-80 text-base-content">
+        <div className="drawer-side ">
+          <label htmlFor="my-drawer" className="drawer-overlay"></label>
+          <ul className="menu my-24 py-4 w-80 text-base-content">
 
             {
               isBuyer &&  (<li><Link to='/dashboard'>My Orders</Link></li>

@@ -35,11 +35,11 @@ const Bookings = () => {
    <>
 {
      isBuyer && <div>
-     <h1 classNameName='text-2xl mt-10 mb-6'>My Orders: {bookings.length}</h1>
+     <h1 className='text-2xl mt-10 mb-6'>My Orders: {bookings.length}</h1>
            <div>
            
-           <div classNameName="overflow-x-auto">
-   <table classNameName="table table-zebra w-full">
+           <div className="overflow-x-auto">
+   <table className="table table-zebra w-full">
  
      <thead>
        <tr>
@@ -61,10 +61,10 @@ const Bookings = () => {
              <td  data-label='PRICE'>{booking.price}</td>
              <td  data-label='LOCATION'>{booking.location}</td>
              <td  data-label='PAYMENT'>{
-             booking.price && !booking.paid && <Link to={`/dashboard/payments/${booking._id}`}><button classNameName='btn btn-primary btn-sm'>Pay Now</button></Link>
+             booking.price && !booking.paid && <Link to={`/dashboard/payments/${booking._id}`}><button className='btn btn-primary btn-sm'>Pay Now</button></Link>
              }
              {
-               booking.price && booking.paid && <span classNameName='text-green-500'>Paid</span>
+               booking.price && booking.paid && <span className='text-green-500'>Paid</span>
              }
              </td>
            </tr>)

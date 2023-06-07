@@ -23,13 +23,13 @@ const Home = () => {
             <Dealership></Dealership>
             <CategoriesName></CategoriesName>
             <CarSales></CarSales>
+            <SellCar></SellCar>
              <Advertice></Advertice>
              <OfferBanner></OfferBanner>
              <CarDealer></CarDealer>
              <Testimonial></Testimonial>
              <SmallBanner></SmallBanner>
              <AboutUs></AboutUs>
-             <SellCar></SellCar>
              <Subscribe></Subscribe>
              <ContactMap></ContactMap>
         </div>

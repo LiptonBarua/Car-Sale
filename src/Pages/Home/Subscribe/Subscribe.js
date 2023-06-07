@@ -4,7 +4,7 @@ const Subscribe = () => {
     return (
         <div>
             <section className=" mb-36" style={{ backgroundImage: `url(https://c4.wallpaperflare.com/wallpaper/47/61/288/nissan-skyline-gt-r-r34-v-spec-ii-nissan-skyline-gt-r-r34-nissan-jdm-wallpaper-preview.jpg)`,backgroundPosition: `center`, backgroundSize: `cover`, backgroundRepeat: `no-repeat` }}>
-                <div className="bg-opacity-90 bg-[black] py-8 px-4  lg:py-16 lg:px-6">
+                <div className="bg-[#000000c2] bg-opacity-80 py-8 px-4  lg:py-16 lg:px-6">
 
 
 
