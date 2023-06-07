@@ -15,9 +15,9 @@ const CategoriesName = () => {
         }
     })
     return (
-        <div className='my-10 md:max-w-[1280px] mx-auto'>
+        <div className='my-10 md:max-w-[90%] md:mx-auto'>
             <h1 className='text-2xl text-center mb-6'>All Category</h1>
-            <div className=' grid grid-cols-1 md:grid-cols-3 gap-6'>
+            <div className='px-5 md:px-0 grid grid-cols-1 md:grid-cols-3 gap-6'>
             {
                 categories?.map(categorie=><Link to={`/product/${categorie.brand}`}><CategorieCard key={categorie._id} categorie={categorie}></CategorieCard></Link>)
             }

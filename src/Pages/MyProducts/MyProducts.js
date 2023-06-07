@@ -61,13 +61,21 @@ const MyProducts = () => {
 
     }
     return (
-        <div className='my-24 md:max-w-[1280px] mx-auto'>
-        <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-            {
+    
+
+
+<section className='py-36 md:max-w-[92%] mx-auto'>
+<div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
+
+{
                 myProducts.map(product=><MyProduct key={product._id} product={product} handleDeleteProduct={handleDeleteProduct} handleAdvertice={handleAdvertice}></MyProduct>)
             }
-        </div>
-        </div>
+</div>
+
+<div>
+</div>
+
+</section>
     );
 };
 

@@ -16,10 +16,10 @@ const Payment = () => {
         return <Loading></Loading>
     }
     return (
-        <div data-theme="luxury" className=' p-16 mt-10 rounded-lg'>
-             <h1 className='text-3xl'>Payment for {title}.</h1>
+        <div data-theme="luxury" classNameName=' p-16 mt-10 rounded-lg'>
+             <h1 classNameName='text-3xl'>Payment for {title}.</h1>
              <p>Please pay <strong>${price}</strong> for your Payment.</p>
-              <div className='w-96 my-10'>
+              <div classNameName='w-96 my-10'>
             <Elements stripe={stripePromise}>
             <CheckoutForm booking={booking}></CheckoutForm>
             </Elements>

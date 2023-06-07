@@ -3,8 +3,8 @@ import React from 'react';
 const Subscribe = () => {
     return (
         <div>
-            <section className="bg-[#d01818] my-24">
-                <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+            <section className=" mb-36" style={{ backgroundImage: `url(https://c4.wallpaperflare.com/wallpaper/47/61/288/nissan-skyline-gt-r-r34-v-spec-ii-nissan-skyline-gt-r-r34-nissan-jdm-wallpaper-preview.jpg)`,backgroundPosition: `center`, backgroundSize: `cover`, backgroundRepeat: `no-repeat` }}>
+                <div className="bg-opacity-90 bg-[black] py-8 px-4  lg:py-16 lg:px-6">
 
 
 
@@ -14,9 +14,9 @@ const Subscribe = () => {
                                 <p className='text-white'>Get the latest news from MotorLand</p>
                                 <h2 className="mb-4 text-2xl tracking-tight font-semibold sm:text-4xl text-white">SUBSCRIBE TO OUR NEWSLETTER</h2>
                             </div>
-                            <input className='md:ml-12 ml-0 md:w-80 py-3 px-6 rounded-l-lg' placeholder="Email Address" type="email" name="" id="" />
+                            <input className='md:ml-2 ml-0 md:w-96 py-4 px-8 ' placeholder="Email Address" type="email" name="" id="" />
                             {/* <input type="email" name="email" placeholder="Email Address" className="input md:w-80  dark:text-black" /> */}
-                            <button className="bg-black rounded-r-lg text-white font-bold py-3 px-6">Subscribe</button>
+                            <button className=" text-black font-bold py-4 px-6 bg-[#de5510]">Subscribe</button>
 
                         </div>
                     </div>

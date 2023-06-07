@@ -12,7 +12,7 @@ const Categorys = () => {
   const products= useLoaderData();
   console.log(products)
     return (
-      <section className='my-24 md:max-w-[92%] mx-auto'>
+      <section className='py-36 md:max-w-[92%] mx-auto'>
          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
         
         {

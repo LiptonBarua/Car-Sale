@@ -11,6 +11,7 @@ import Dealership from '../Dealership/Dealership';
 import OfferBanner from '../OfferBanner/OfferBanner';
 import ContactMap from '../ContactMap/ContactMap';
 import Subscribe from '../Subscribe/Subscribe';
+import SellCar from '../../SellCar/SellCar';
 
 
 
@@ -28,6 +29,7 @@ const Home = () => {
              <Testimonial></Testimonial>
              <SmallBanner></SmallBanner>
              <AboutUs></AboutUs>
+             <SellCar></SellCar>
              <Subscribe></Subscribe>
              <ContactMap></ContactMap>
         </div>

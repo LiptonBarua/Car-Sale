@@ -62,7 +62,7 @@ const CategoryModel = ({ productsName}) => {
                         <input type="text"  name='location'  placeholder="Meeting Location" required className="input input-bordered input-info w-full my-3" /><br />
                         <input type="number" name='phone' placeholder="Phone Name" required className="input input-bordered w-full mb-3" /><br />
                        
-                        <button type='submit'> <label htmlFor="product-modal" className="btn btn-sm w-full btn-primary">Submit</label></button>
+                        <button type='submit'> <label htmlFor="product-modal" className="btn btn-sm w-full bg-[#d01818]">Submit</label></button>
                     </form>
                 </div>
             </div>

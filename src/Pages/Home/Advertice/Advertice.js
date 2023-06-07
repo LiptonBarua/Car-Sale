@@ -27,14 +27,16 @@ const Advertice = () => {
 
     return (
         <div className='py-24 md:max-w-[92%] mx-auto'>
-           <h1 className='text-2xl text-center mb-10'>All Advertice</h1>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+           <div className='mb-24'>
+           <h1 className='text-2xl lg:text-4xl text-center'>Featured Vehicles</h1>
+           <p className='text-center'>Tempor incididunt duis labore dolore magna aliqua sed ipsum</p>
+           </div>
+            <div className='px-4 md:px-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
               {
                slice.map(advertice=><Advertices key={advertice._id} advertice={advertice} ></Advertices>)
               }
         </div>
         <div className='text-center mt-8'>
-        <button onClick={loadMore} className='bg-[#d01818] text-white font-bold  px-6 py-1'>See More</button>
         </div>
         </div>
     );

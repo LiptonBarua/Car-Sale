@@ -5,7 +5,7 @@ const CategorieCard = ({categorie}) => {
     const { image, brand} = categorie;
     console.log(categorie)
     return (
-       <div>
+       <div className=''>
           <div className="card card-compact h-[230px] shadow-xl">
         <figure><img className='' src={image} alt="Shoes" /></figure>
         <div className="card-body items-center text-center">

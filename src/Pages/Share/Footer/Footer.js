@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div>
             <div className="">
-            <img src='https://i.ibb.co/6sKz15W/logo-removebg-preview.png' alt="" classNameName='w-20 lg:w-36' />
+            <img src='https://i.ibb.co/6sKz15W/logo-removebg-preview.png' alt="" className='w-20 lg:w-36' />
 
             </div>
     

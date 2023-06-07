@@ -44,7 +44,7 @@ const ContactMap = () => {
                             <textarea className="w-full border-gray-200 p-3 text-sm" placeholder=""
                                 type='text'
                                 name='message'
-                                rows="8"
+                                rows="6"
 
                             ></textarea>
                         </div>

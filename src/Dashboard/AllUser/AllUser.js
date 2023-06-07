@@ -72,9 +72,9 @@ const AllUser = () => {
     })
 }
     return (
-        <div className=''>
-        <div className="overflow-x-auto my-10">
-<table className="table table-zebra w-full text-black">
+        <div classNameName=''>
+        <div classNameName="overflow-x-auto my-10">
+<table classNameName="table table-zebra w-full text-black">
 
   <thead>
     <tr>
@@ -95,8 +95,8 @@ const AllUser = () => {
           <td data-label='NAME'>{user.name}</td>
           <td data-label='EMAIL'>{user.email}</td>
           <td data-label='ROLE'>{user.role==='admin' ? user.role: user.role}</td>
-          <td data-label='VERIFIED'>{user?.role ==="Seller" &&  user?.isVerified !=='verified' && user?.role !=="admin"  && <button onClick={()=>handleMakeVerify(user._id)} className='btn btn-xs btn-primary'>Make Verify</button>}</td>
-          <td data-label='ADMIN'>{user?.role !=="admin" && <button onClick={()=>handleMakeAdmin(user._id)} className='btn btn-xs btn-primary'>Make Admin</button>}</td>
+          <td data-label='VERIFIED'>{user?.role ==="Seller" &&  user?.isVerified !=='verified' && user?.role !=="admin"  && <button onClick={()=>handleMakeVerify(user._id)} classNameName='btn btn-xs btn-primary'>Make Verify</button>}</td>
+          <td data-label='ADMIN'>{user?.role !=="admin" && <button onClick={()=>handleMakeAdmin(user._id)} classNameName='btn btn-xs btn-primary'>Make Admin</button>}</td>
           <td data-label='DELETE'><button onClick={()=>handleDeleteUsers(user)}>Delete</button></td>               
         </tr>)
    }

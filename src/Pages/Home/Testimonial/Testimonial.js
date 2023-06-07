@@ -1,75 +1,49 @@
 import React from 'react';
 
 const Testimonial = () => {
+    const testimonails = [
+        {
+            img: 'https://cdn.pixabay.com/photo/2020/09/18/22/05/man-5583035_1280.jpg',
+            name: 'Nick William',
+            position: ' Maintainer of Carbon PHP Library',
+            title: 'PHPSandbox provides a great experience for our users to test the code right from the documentation. And for any new feature or bug report, we can share code and see the result immediately. For code demo with composer dependencies, its the best!'
+        },
+        {
+            img: 'https://thumbs.dreamstime.com/b/man-well-groomed-formal-outfit-isolated-white-background-male-fashion-concept-business-dress-code-means-suit-businessman-119398577.jpg',
+            position: ' Maintainer of Carbon PHP Library',
+            name: 'James Liam',
+            title: 'PHPSandbox provides a great experience for our users to test the code right from the documentation. And for any new feature or bug report, we can share code and see the result immediately. For code demo with composer dependencies, its the best!'
+        },
+    ]
     return (
-        <div className=' px-10 bg-[#f4f2f2]'>
-            
-            <section className="my-8 ">
-            <div className='mb-16 text-center'>
-            <p className='text-orange-600 font-bold'>Testimonial</p>
-            <h1 className='font-bold text-2xl md:text-3xl text-black'>What Our Clients Says</h1>
+        <section className="" style={{ backgroundImage: `url(https://c4.wallpaperflare.com/wallpaper/736/452/852/nissan-skyline-gt-r-nissan-nissan-gtr-nissan-gtr-r34-wallpaper-preview.jpg)`, backgroundSize: `cover`, backgroundRepeat: `no-repeat` }}>
+            <div className="flex py-24 bg-[#000000d0] bg-opacity-80 flex-col p-6 mx-auto sm:py-12 lg:pt-32 lg:flex-row lg:justify-between">
+                <section className="md:max-w-[85%] mx-auto">
+
+                    <div className='grid grid-cols-1 md:grid-cols-2 gap-5 md:-mb-28'>
+                   {
+                    testimonails?.map((testimonail, i)=> <div className="hover:bg-[#d01818] hover:text-white bg-white text-black px-10 mt-16 md:mt-0 w-full shadow-lg" style={{transition: `2s`}}>
+
+                    <img alt="Kyle-katarn" src={testimonail.img} className="h-24 w-24 -mt-10" />
+                    <div className="mt-6 pb-5">
+
+                        <div className='flex items-center'>
+                            <hr className='w-3 mr-1'></hr>
+                            <p className="font-semibold">{testimonail?.name}</p>
+                        </div>
+                        <p>{testimonail?.position}</p>
+                        <p className="mt-4 text-sm text-justify">
+                           {testimonail?.title}
+                        </p>
+                    </div>
+
+                </div>)
+                   }
+                       
+                    </div>
+                </section>
             </div>
-	<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-		<div className="flex flex-col max-w-sm mx-4 my-6 shadow-lg bg-[white]">
-			<div className="px-4 py-12 rounded-t-lg sm:px-8 md:px-12 dark:bg-gray-900">
-				<p className="relative px-6 py-1 text-lg italic text-center dark:text-gray-100">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" className="w-8 h-8 dark:text-violet-400">
-						<path d="M232,246.857V16H16V416H54.4ZM48,48H200V233.143L48,377.905Z"></path>
-						<path d="M280,416h38.4L496,246.857V16H280ZM312,48H464V233.143L312,377.905Z"></path>
-					</svg>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quibusdam, eligendi exercitationem molestias possimus facere.
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" className="absolute right-0 w-8 h-8 dark:text-violet-400">
-						<path d="M280,185.143V416H496V16H457.6ZM464,384H312V198.857L464,54.1Z"></path>
-						<path d="M232,16H193.6L16,185.143V416H232ZM200,384H48V198.857L200,54.1Z"></path>
-					</svg>
-				</p>
-			</div>
-			<div className="flex flex-col items-center justify-center p-8 rounded-b-lg dark:bg-violet-400 dark:text-gray-900">
-				<img src="https://source.unsplash.com/50x50/?portrait?1" alt="" className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-full dark:bg-gray-500 dark:bg-gray-700" />
-				<p className="text-xl font-semibold leading-tight">Distinctio Animi</p>
-				<p className="text-sm uppercase">Aliquam illum</p>
-			</div>
-		</div>
-		<div className="flex flex-col max-w-sm mx-4 my-6 shadow-lg bg-white">
-			<div className="px-4 py-12 rounded-t-lg sm:px-8 md:px-12 dark:bg-gray-900">
-				<p className="relative px-6 py-1 text-lg italic text-center dark:text-gray-100">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" className="w-8 h-8 dark:text-violet-400">
-						<path d="M232,246.857V16H16V416H54.4ZM48,48H200V233.143L48,377.905Z"></path>
-						<path d="M280,416h38.4L496,246.857V16H280ZM312,48H464V233.143L312,377.905Z"></path>
-					</svg>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quibusdam, eligendi exercitationem molestias possimus facere.
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" className="absolute right-0 w-8 h-8 dark:text-violet-400">
-						<path d="M280,185.143V416H496V16H457.6ZM464,384H312V198.857L464,54.1Z"></path>
-						<path d="M232,16H193.6L16,185.143V416H232ZM200,384H48V198.857L200,54.1Z"></path>
-					</svg>
-				</p>
-			</div>
-			<div className="flex flex-col items-center justify-center p-8 rounded-b-lg dark:bg-violet-400 dark:text-gray-900">
-				<img src="https://source.unsplash.com/50x50/?portrait?2" alt="" className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-full dark:bg-gray-500 dark:bg-gray-700" />
-				<p className="text-xl font-semibold leading-tight">Distinctio Animi</p>
-				<p className="text-sm uppercase">Aliquam illum</p>
-			</div>
-		</div>
-		<div className="flex flex-col max-w-sm mx-4 my-6 shadow-lg bg-white">
-			<div className="px-4 py-12 rounded-t-lg sm:px-8 md:px-12 dark:bg-gray-900">
-				<p className="relative px-6 py-1 text-lg italic text-center dark:text-gray-100">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" className="w-8 h-8 dark:text-violet-400">
-						<path d="M232,246.857V16H16V416H54.4ZM48,48H200V233.143L48,377.905Z"></path>
-						<path d="M280,416h38.4L496,246.857V16H280ZM312,48H464V233.143L312,377.905Z"></path>
-					</svg>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus quibusdam, eligendi exercitationem molestias possimus facere.
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" className="absolute right-0 w-8 h-8 dark:text-violet-400">
-						<path d="M280,185.143V416H496V16H457.6ZM464,384H312V198.857L464,54.1Z"></path>
-						<path d="M232,16H193.6L16,185.143V416H232ZM200,384H48V198.857L200,54.1Z"></path>
-					</svg>
-				</p>
-			</div>
-			<div className="flex flex-col items-center justify-center p-8 rounded-b-lg dark:bg-violet-400 dark:text-gray-900">
-				<img src="https://source.unsplash.com/50x50/?portrait?4" alt="" className="w-16 h-16 mb-2 -mt-16 bg-center bg-cover rounded-full dark:bg-gray-500 dark:bg-gray-700" />
-				<p className="text-xl font-semibold leading-tight">Distinctio Animi</p>
-				<p className="text-sm uppercase">Aliquam illum</p>
-			</div>
-		</div>
-	</div>
-</section>
-        </div>
+        </section>
     );
 };
 
